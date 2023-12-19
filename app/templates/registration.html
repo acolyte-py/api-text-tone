@@ -1,0 +1,105 @@
+{% extends "base.html" %}
+
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+    <h1>Форма Регистрации</h1>
+
+    <style>
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 500px;
+            text-align: center;
+            max-width: 100%;
+            resize: none !important;
+            overflow: hidden;
+        }
+    </style>
+
+    <form id="registrationForm">
+        <label for="username">Почтовый адрес:</label>
+        <input type="text" id="email" name="username" required>
+        <br>
+        <label for="username">Имя пользователя:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <input type="button" value="Зарегистрироваться" onclick="registerUser()">
+    </form>
+
+    <div style="position: absolute; top: 20px; right: 20px;">
+        <a href="/" style="text-decoration: none;">
+            <button style="border: none; background-color: #5F9EA0; color: white; border-radius: 4px; font-size: 16px; cursor: pointer; padding: 10px 20px;">Анализ</button>
+        </a>
+        <a href="/login" style="text-decoration: none;">
+            <button style="border: none; background-color: #5F9EA0; color: white; border-radius: 4px; font-size: 16px; cursor: pointer; padding: 10px 20px;">Авторизация</button>
+        </a>
+    </div>
+
+    <div id="notification" style="display: none;"></div>
+
+    <script>
+        function registerUser() {
+            var email = document.getElementById('email').value;
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            var userData = {
+                "email": email,
+                "username": username,
+                "password": password,
+                "is_active": true,
+                "is_superuser": false,
+                "is_verified": false,
+                "role_id": 0
+            };
+
+            fetch('/auth/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'accept': 'application/json'
+                },
+                body: JSON.stringify(userData)
+            })
+            .then(response => {
+                if (response.ok) {
+                    showNotification('Регистрация прошла успешно.', 'green');
+                    console.log('Регистрация прошла успешно. Перенаправление через 2 секунды.');
+                    setTimeout(function () {
+                        window.location.href = "/login";
+                    }, 3000);
+                } else {
+                    showNotification('Упс.. Что то пошло не так.', 'red');
+                    console.error('Ошибка регистрации:', response.statusText);
+                }
+            })
+            .catch(error => {
+                showNotification('Упс.. Что то пошло не так.', 'red');
+                console.error('Ошибка регистрации:', error);
+            });
+        }
+
+        function showNotification(message, color) {
+            var notification = document.getElementById('notification')
+            notification.innerHTML = message;
+            notification.style.backgroundColor = color;
+            notification.style.color = 'white';
+            notification.style.fontSize = '22px';
+            notification.style.border = 'none';
+            notification.style.padding = '10px 20px';
+            notification.style.borderRadius = '4px';
+            notification.style.display = 'block';
+
+            setTimeout(function() {
+                notification.style.display = 'none';
+            }, 3000)
+        }
+    </script>
+{% endblock %}

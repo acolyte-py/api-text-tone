@@ -1,0 +1,2904 @@
+ 
+=====================
+[RUFF LOGS]
+=====================
+ 
+warning: `one-blank-line-before-class` (D203) and `no-blank-line-before-class` (D211) are incompatible. Ignoring `one-blank-line-before-class`.
+warning: `multi-line-summary-first-line` (D212) and `multi-line-summary-second-line` (D213) are incompatible. Ignoring `multi-line-summary-second-line`.
+/home/acolyte/soft/api-project/api-text-tone/app/__init__.py:1:1: D104 Missing docstring in public package
+ |
+ |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/__init__.py:1:1: D104 Missing docstring in public package
+ |
+ |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:1:1: D212 [*] Multi-line docstring summary should start at the first line
+  |
+1 | / """
+2 | |     Модуль для работы с базой данных.
+3 | | 
+4 | |     Здесь есть класс User для кастомизации определенных полей(атрибуты класса).
+5 | |     Также функции, которые отвечают за парс данных и создание асинхронной сессии.
+6 | | """
+  | |___^ D212
+7 |   from datetime import datetime
+8 |   from typing import AsyncGenerator
+  |
+  = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:2:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Модуль для работы с базой данных.
+  |  D208
+3 | 
+4 |     Здесь есть класс User для кастомизации определенных полей(атрибуты класса).
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:2:23: RUF002 Docstring contains ambiguous `с` (CYRILLIC SMALL LETTER ES). Did you mean `c` (LATIN SMALL LETTER C)?
+  |
+1 | """
+2 |     Модуль для работы с базой данных.
+  |                       ^ RUF002
+3 | 
+4 |     Здесь есть класс User для кастомизации определенных полей(атрибуты класса).
+  |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:4:1: D208 [*] Docstring is over-indented
+  |
+2 |     Модуль для работы с базой данных.
+3 | 
+4 |     Здесь есть класс User для кастомизации определенных полей(атрибуты класса).
+  |  D208
+5 |     Также функции, которые отвечают за парс данных и создание асинхронной сессии.
+6 | """
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:5:1: D208 [*] Docstring is over-indented
+  |
+4 |     Здесь есть класс User для кастомизации определенных полей(атрибуты класса).
+5 |     Также функции, которые отвечают за парс данных и создание асинхронной сессии.
+  |  D208
+6 | """
+7 | from datetime import datetime
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:8:1: UP035 [*] Import from `collections.abc` instead: `AsyncGenerator`
+   |
+ 6 | """
+ 7 | from datetime import datetime
+ 8 | from typing import AsyncGenerator
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ UP035
+ 9 | 
+10 | from sqlalchemy.ext.declarative import DeclarativeMeta, declarative_base
+   |
+   = help: Import from `collections.abc`
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:26:5: D204 [*] 1 blank line required after class docstring
+   |
+25 |   class User(SQLAlchemyBaseUserTable[int], Base):  # используется int, потому что наш ID: int. Можно юзать UUID
+26 |       """
+   |  _____^
+27 | |     Класс для реализации логики User
+28 | | 
+29 | |     :attribute id: int - Уникальное значение пользователя:
+30 | |     :attribute email: str - Электронный адрес пользователя:
+31 | |     :attribute username: str - Никнейм/Имя пользователя:
+32 | |     :attribute hashed_password: str - Пароль пользователя в виде хэша:
+33 | |     :attribute registered_at: time - Время регистрации пользователя:
+34 | |     :attribute role_id: int - Уникальное значение роли (1-user, 2-admin):
+35 | |     :attribute is_active: bool - Активный пользователь или нет:
+36 | |     :attribute is_superuser: bool - Супер пользователь или нет:
+37 | |     :attribute is_verified: bool - Верифицирован пользователь или нет:
+38 | |     """
+   | |_______^ D204
+39 |       id: int = Column(Integer, primary_key=True)
+40 |       email: str = Column(String, nullable=False)
+   |
+   = help: Insert 1 blank line after class docstring
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:26:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+25 |   class User(SQLAlchemyBaseUserTable[int], Base):  # используется int, потому что наш ID: int. Можно юзать UUID
+26 |       """
+   |  _____^
+27 | |     Класс для реализации логики User
+28 | | 
+29 | |     :attribute id: int - Уникальное значение пользователя:
+30 | |     :attribute email: str - Электронный адрес пользователя:
+31 | |     :attribute username: str - Никнейм/Имя пользователя:
+32 | |     :attribute hashed_password: str - Пароль пользователя в виде хэша:
+33 | |     :attribute registered_at: time - Время регистрации пользователя:
+34 | |     :attribute role_id: int - Уникальное значение роли (1-user, 2-admin):
+35 | |     :attribute is_active: bool - Активный пользователь или нет:
+36 | |     :attribute is_superuser: bool - Супер пользователь или нет:
+37 | |     :attribute is_verified: bool - Верифицирован пользователь или нет:
+38 | |     """
+   | |_______^ D212
+39 |       id: int = Column(Integer, primary_key=True)
+40 |       email: str = Column(String, nullable=False)
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:26:5: D400 First line should end with a period
+   |
+25 |   class User(SQLAlchemyBaseUserTable[int], Base):  # используется int, потому что наш ID: int. Можно юзать UUID
+26 |       """
+   |  _____^
+27 | |     Класс для реализации логики User
+28 | | 
+29 | |     :attribute id: int - Уникальное значение пользователя:
+30 | |     :attribute email: str - Электронный адрес пользователя:
+31 | |     :attribute username: str - Никнейм/Имя пользователя:
+32 | |     :attribute hashed_password: str - Пароль пользователя в виде хэша:
+33 | |     :attribute registered_at: time - Время регистрации пользователя:
+34 | |     :attribute role_id: int - Уникальное значение роли (1-user, 2-admin):
+35 | |     :attribute is_active: bool - Активный пользователь или нет:
+36 | |     :attribute is_superuser: bool - Супер пользователь или нет:
+37 | |     :attribute is_verified: bool - Верифицирован пользователь или нет:
+38 | |     """
+   | |_______^ D400
+39 |       id: int = Column(Integer, primary_key=True)
+40 |       email: str = Column(String, nullable=False)
+   |
+   = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:26:5: D415 First line should end with a period, question mark, or exclamation point
+   |
+25 |   class User(SQLAlchemyBaseUserTable[int], Base):  # используется int, потому что наш ID: int. Можно юзать UUID
+26 |       """
+   |  _____^
+27 | |     Класс для реализации логики User
+28 | | 
+29 | |     :attribute id: int - Уникальное значение пользователя:
+30 | |     :attribute email: str - Электронный адрес пользователя:
+31 | |     :attribute username: str - Никнейм/Имя пользователя:
+32 | |     :attribute hashed_password: str - Пароль пользователя в виде хэша:
+33 | |     :attribute registered_at: time - Время регистрации пользователя:
+34 | |     :attribute role_id: int - Уникальное значение роли (1-user, 2-admin):
+35 | |     :attribute is_active: bool - Активный пользователь или нет:
+36 | |     :attribute is_superuser: bool - Супер пользователь или нет:
+37 | |     :attribute is_verified: bool - Верифицирован пользователь или нет:
+38 | |     """
+   | |_______^ D415
+39 |       id: int = Column(Integer, primary_key=True)
+40 |       email: str = Column(String, nullable=False)
+   |
+   = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:55:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+54 |   async def get_async_session() -> AsyncGenerator[AsyncSession, None]:
+55 |       """
+   |  _____^
+56 | |     Функция, которая создает асинхронную сессию
+57 | | 
+58 | |     :return AsyncGenerator: Генератор асинхронный сессии:
+59 | |     """
+   | |_______^ D212
+60 |       async with SessionLocal() as session:
+61 |           yield session
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:55:5: D400 First line should end with a period
+   |
+54 |   async def get_async_session() -> AsyncGenerator[AsyncSession, None]:
+55 |       """
+   |  _____^
+56 | |     Функция, которая создает асинхронную сессию
+57 | | 
+58 | |     :return AsyncGenerator: Генератор асинхронный сессии:
+59 | |     """
+   | |_______^ D400
+60 |       async with SessionLocal() as session:
+61 |           yield session
+   |
+   = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:55:5: D415 First line should end with a period, question mark, or exclamation point
+   |
+54 |   async def get_async_session() -> AsyncGenerator[AsyncSession, None]:
+55 |       """
+   |  _____^
+56 | |     Функция, которая создает асинхронную сессию
+57 | | 
+58 | |     :return AsyncGenerator: Генератор асинхронный сессии:
+59 | |     """
+   | |_______^ D415
+60 |       async with SessionLocal() as session:
+61 |           yield session
+   |
+   = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:64:47: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   |
+64 | async def get_user_db(session: AsyncSession = Depends(get_async_session)) -> SQLAlchemyUserDatabase:
+   |                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^ B008
+65 |     """
+66 |     Функция, которая получает значение таблицы User из сессии
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:65:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+64 |   async def get_user_db(session: AsyncSession = Depends(get_async_session)) -> SQLAlchemyUserDatabase:
+65 |       """
+   |  _____^
+66 | |     Функция, которая получает значение таблицы User из сессии
+67 | | 
+68 | |     :param session: AsyncSession - Асинхронная сессия из функции -> get_async_session:
+69 | |     :return SQLAlchemyUserDatabase: Возвращает значение из таблицы User:
+70 | |     """
+   | |_______^ D212
+71 |       yield SQLAlchemyUserDatabase(session=session, user_table=User)
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:65:5: D400 First line should end with a period
+   |
+64 |   async def get_user_db(session: AsyncSession = Depends(get_async_session)) -> SQLAlchemyUserDatabase:
+65 |       """
+   |  _____^
+66 | |     Функция, которая получает значение таблицы User из сессии
+67 | | 
+68 | |     :param session: AsyncSession - Асинхронная сессия из функции -> get_async_session:
+69 | |     :return SQLAlchemyUserDatabase: Возвращает значение из таблицы User:
+70 | |     """
+   | |_______^ D400
+71 |       yield SQLAlchemyUserDatabase(session=session, user_table=User)
+   |
+   = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:65:5: D415 First line should end with a period, question mark, or exclamation point
+   |
+64 |   async def get_user_db(session: AsyncSession = Depends(get_async_session)) -> SQLAlchemyUserDatabase:
+65 |       """
+   |  _____^
+66 | |     Функция, которая получает значение таблицы User из сессии
+67 | | 
+68 | |     :param session: AsyncSession - Асинхронная сессия из функции -> get_async_session:
+69 | |     :return SQLAlchemyUserDatabase: Возвращает значение из таблицы User:
+70 | |     """
+   | |_______^ D415
+71 |       yield SQLAlchemyUserDatabase(session=session, user_table=User)
+   |
+   = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/database.py:75:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+74 |   async def update_user_roles(session: AsyncSession, user_id: int, new_role_id: int, is_superuser: bool) -> None:
+75 |       """
+   |  _____^
+76 | |     Функция, для обновления роли (role_id) и статуса суперпользователя (is_superuser) пользователя в базе данных.
+77 | | 
+78 | |     :param session: AsyncSession - Асинхронная сессия базы данных:
+79 | |     :param user_id: int - ID пользователя, которого нужно обновить:
+80 | |     :param new_role_id: int - Новое значение role_id:
+81 | |     :param is_superuser: bool - Новое значение is_superuser:
+82 | |     """
+   | |_______^ D212
+83 |       stmt = update(User).where(User.id == user_id).values(role_id=new_role_id, is_superuser=is_superuser)
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:1:1: D205 1 blank line required between summary line and description
+  |
+1 | / """
+2 | |     Модуль, в котором хранится кастомный UserManager наследованный из класса BaseUserManager.
+3 | |     Который также запускает этого UserManager.
+4 | | """
+  | |___^ D205
+5 |   from typing import Optional
+  |
+  = help: Insert single blank line
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:1:1: D212 [*] Multi-line docstring summary should start at the first line
+  |
+1 | / """
+2 | |     Модуль, в котором хранится кастомный UserManager наследованный из класса BaseUserManager.
+3 | |     Который также запускает этого UserManager.
+4 | | """
+  | |___^ D212
+5 |   from typing import Optional
+  |
+  = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:2:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Модуль, в котором хранится кастомный UserManager наследованный из класса BaseUserManager.
+  |  D208
+3 |     Который также запускает этого UserManager.
+4 | """
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:3:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Модуль, в котором хранится кастомный UserManager наследованный из класса BaseUserManager.
+3 |     Который также запускает этого UserManager.
+  |  D208
+4 | """
+5 | from typing import Optional
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:15:5: D204 [*] 1 blank line required after class docstring
+   |
+14 |   class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
+15 |       """
+   |  _____^
+16 | |     Кастомный класс, реализующий логику Manager FastAPI_Users
+17 | |     Единственное что поменял, это добавил логику по добавление (дефолту) роль id=1 (user)
+18 | | 
+19 | |     :attribute reset_password_token_secret: str - Секрет для сброса пароля:
+20 | |     :attribute verification_token_secret: str - Секрет для верификации:
+21 | |     """
+   | |_______^ D204
+22 |       reset_password_token_secret = JWT_SECRET  # по хорошему это 2 отдельных секрета
+23 |       verification_token_secret = JWT_SECRET
+   |
+   = help: Insert 1 blank line after class docstring
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:15:5: D205 1 blank line required between summary line and description
+   |
+14 |   class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
+15 |       """
+   |  _____^
+16 | |     Кастомный класс, реализующий логику Manager FastAPI_Users
+17 | |     Единственное что поменял, это добавил логику по добавление (дефолту) роль id=1 (user)
+18 | | 
+19 | |     :attribute reset_password_token_secret: str - Секрет для сброса пароля:
+20 | |     :attribute verification_token_secret: str - Секрет для верификации:
+21 | |     """
+   | |_______^ D205
+22 |       reset_password_token_secret = JWT_SECRET  # по хорошему это 2 отдельных секрета
+23 |       verification_token_secret = JWT_SECRET
+   |
+   = help: Insert single blank line
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:15:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+14 |   class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
+15 |       """
+   |  _____^
+16 | |     Кастомный класс, реализующий логику Manager FastAPI_Users
+17 | |     Единственное что поменял, это добавил логику по добавление (дефолту) роль id=1 (user)
+18 | | 
+19 | |     :attribute reset_password_token_secret: str - Секрет для сброса пароля:
+20 | |     :attribute verification_token_secret: str - Секрет для верификации:
+21 | |     """
+   | |_______^ D212
+22 |       reset_password_token_secret = JWT_SECRET  # по хорошему это 2 отдельных секрета
+23 |       verification_token_secret = JWT_SECRET
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:15:5: D400 First line should end with a period
+   |
+14 |   class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
+15 |       """
+   |  _____^
+16 | |     Кастомный класс, реализующий логику Manager FastAPI_Users
+17 | |     Единственное что поменял, это добавил логику по добавление (дефолту) роль id=1 (user)
+18 | | 
+19 | |     :attribute reset_password_token_secret: str - Секрет для сброса пароля:
+20 | |     :attribute verification_token_secret: str - Секрет для верификации:
+21 | |     """
+   | |_______^ D400
+22 |       reset_password_token_secret = JWT_SECRET  # по хорошему это 2 отдельных секрета
+23 |       verification_token_secret = JWT_SECRET
+   |
+   = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:15:5: D415 First line should end with a period, question mark, or exclamation point
+   |
+14 |   class UserManager(IntegerIDMixin, BaseUserManager[User, int]):
+15 |       """
+   |  _____^
+16 | |     Кастомный класс, реализующий логику Manager FastAPI_Users
+17 | |     Единственное что поменял, это добавил логику по добавление (дефолту) роль id=1 (user)
+18 | | 
+19 | |     :attribute reset_password_token_secret: str - Секрет для сброса пароля:
+20 | |     :attribute verification_token_secret: str - Секрет для верификации:
+21 | |     """
+   | |_______^ D415
+22 |       reset_password_token_secret = JWT_SECRET  # по хорошему это 2 отдельных секрета
+23 |       verification_token_secret = JWT_SECRET
+   |
+   = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:19:62: RUF002 Docstring contains ambiguous `с` (CYRILLIC SMALL LETTER ES). Did you mean `c` (LATIN SMALL LETTER C)?
+   |
+17 |     Единственное что поменял, это добавил логику по добавление (дефолту) роль id=1 (user)
+18 | 
+19 |     :attribute reset_password_token_secret: str - Секрет для сброса пароля:
+   |                                                              ^ RUF002
+20 |     :attribute verification_token_secret: str - Секрет для верификации:
+21 |     """
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:19:63: RUF002 Docstring contains ambiguous `б` (CYRILLIC SMALL LETTER BE). Did you mean `6` (DIGIT SIX)?
+   |
+17 |     Единственное что поменял, это добавил логику по добавление (дефолту) роль id=1 (user)
+18 | 
+19 |     :attribute reset_password_token_secret: str - Секрет для сброса пароля:
+   |                                                               ^ RUF002
+20 |     :attribute verification_token_secret: str - Секрет для верификации:
+21 |     """
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:19:64: RUF002 Docstring contains ambiguous `р` (CYRILLIC SMALL LETTER ER). Did you mean `p` (LATIN SMALL LETTER P)?
+   |
+17 |     Единственное что поменял, это добавил логику по добавление (дефолту) роль id=1 (user)
+18 | 
+19 |     :attribute reset_password_token_secret: str - Секрет для сброса пароля:
+   |                                                                ^ RUF002
+20 |     :attribute verification_token_secret: str - Секрет для верификации:
+21 |     """
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:19:65: RUF002 Docstring contains ambiguous `о` (CYRILLIC SMALL LETTER O). Did you mean `o` (LATIN SMALL LETTER O)?
+   |
+17 |     Единственное что поменял, это добавил логику по добавление (дефолту) роль id=1 (user)
+18 | 
+19 |     :attribute reset_password_token_secret: str - Секрет для сброса пароля:
+   |                                                                 ^ RUF002
+20 |     :attribute verification_token_secret: str - Секрет для верификации:
+21 |     """
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:19:66: RUF002 Docstring contains ambiguous `с` (CYRILLIC SMALL LETTER ES). Did you mean `c` (LATIN SMALL LETTER C)?
+   |
+17 |     Единственное что поменял, это добавил логику по добавление (дефолту) роль id=1 (user)
+18 | 
+19 |     :attribute reset_password_token_secret: str - Секрет для сброса пароля:
+   |                                                                  ^ RUF002
+20 |     :attribute verification_token_secret: str - Секрет для верификации:
+21 |     """
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:19:67: RUF002 Docstring contains ambiguous `а` (CYRILLIC SMALL LETTER A). Did you mean `a` (LATIN SMALL LETTER A)?
+   |
+17 |     Единственное что поменял, это добавил логику по добавление (дефолту) роль id=1 (user)
+18 | 
+19 |     :attribute reset_password_token_secret: str - Секрет для сброса пароля:
+   |                                                                   ^ RUF002
+20 |     :attribute verification_token_secret: str - Секрет для верификации:
+21 |     """
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:25:15: ANN201 Missing return type annotation for public function `on_after_register`
+   |
+23 |     verification_token_secret = JWT_SECRET
+24 | 
+25 |     async def on_after_register(self, user: User, request: Optional[Request] = None):
+   |               ^^^^^^^^^^^^^^^^^ ANN201
+26 |         print(f"User {user.id} has registered.")
+   |
+   = help: Add return type annotation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:25:15: D102 Missing docstring in public method
+   |
+23 |     verification_token_secret = JWT_SECRET
+24 | 
+25 |     async def on_after_register(self, user: User, request: Optional[Request] = None):
+   |               ^^^^^^^^^^^^^^^^^ D102
+26 |         print(f"User {user.id} has registered.")
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:25:33: ANN101 Missing type annotation for `self` in method
+   |
+23 |     verification_token_secret = JWT_SECRET
+24 | 
+25 |     async def on_after_register(self, user: User, request: Optional[Request] = None):
+   |                                 ^^^^ ANN101
+26 |         print(f"User {user.id} has registered.")
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:25:60: UP007 Use `X | Y` for type annotations
+   |
+23 |     verification_token_secret = JWT_SECRET
+24 | 
+25 |     async def on_after_register(self, user: User, request: Optional[Request] = None):
+   |                                                            ^^^^^^^^^^^^^^^^^ UP007
+26 |         print(f"User {user.id} has registered.")
+   |
+   = help: Convert to `X | Y`
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:28:15: D102 Missing docstring in public method
+   |
+26 |         print(f"User {user.id} has registered.")
+27 | 
+28 |     async def create(self, user_create: schemas.UC, safe: bool = False, request: Optional[Request] = None) -> models.UP:
+   |               ^^^^^^ D102
+29 |         await self.validate_password(user_create.password, user_create)
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:28:22: ANN101 Missing type annotation for `self` in method
+   |
+26 |         print(f"User {user.id} has registered.")
+27 | 
+28 |     async def create(self, user_create: schemas.UC, safe: bool = False, request: Optional[Request] = None) -> models.UP:
+   |                      ^^^^ ANN101
+29 |         await self.validate_password(user_create.password, user_create)
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:28:82: UP007 Use `X | Y` for type annotations
+   |
+26 |         print(f"User {user.id} has registered.")
+27 | 
+28 |     async def create(self, user_create: schemas.UC, safe: bool = False, request: Optional[Request] = None) -> models.UP:
+   |                                                                                  ^^^^^^^^^^^^^^^^^ UP007
+29 |         await self.validate_password(user_create.password, user_create)
+   |
+   = help: Convert to `X | Y`
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:51:28: ANN001 Missing type annotation for function argument `user_db`
+   |
+51 | async def get_user_manager(user_db=Depends(get_user_db)) -> UserManager:
+   |                            ^^^^^^^ ANN001
+52 |     """
+53 |     Функция для вызова Manager при создании пользователя.
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:51:36: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   |
+51 | async def get_user_manager(user_db=Depends(get_user_db)) -> UserManager:
+   |                                    ^^^^^^^^^^^^^^^^^^^^ B008
+52 |     """
+53 |     Функция для вызова Manager при создании пользователя.
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:52:5: D205 1 blank line required between summary line and description
+   |
+51 |   async def get_user_manager(user_db=Depends(get_user_db)) -> UserManager:
+52 |       """
+   |  _____^
+53 | |     Функция для вызова Manager при создании пользователя.
+54 | |     Также нужен для валидации некоторых данных, к примеру role_id, password
+55 | | 
+56 | |     :param user_db: Depends - Значение полученные из таблицы в открытой сессии:
+57 | |     :return: класс UserManager:
+58 | |     """
+   | |_______^ D205
+59 |       yield UserManager(user_db)
+   |
+   = help: Insert single blank line
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:52:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+51 |   async def get_user_manager(user_db=Depends(get_user_db)) -> UserManager:
+52 |       """
+   |  _____^
+53 | |     Функция для вызова Manager при создании пользователя.
+54 | |     Также нужен для валидации некоторых данных, к примеру role_id, password
+55 | | 
+56 | |     :param user_db: Depends - Значение полученные из таблицы в открытой сессии:
+57 | |     :return: класс UserManager:
+58 | |     """
+   | |_______^ D212
+59 |       yield UserManager(user_db)
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:52:5: D400 First line should end with a period
+   |
+51 |   async def get_user_manager(user_db=Depends(get_user_db)) -> UserManager:
+52 |       """
+   |  _____^
+53 | |     Функция для вызова Manager при создании пользователя.
+54 | |     Также нужен для валидации некоторых данных, к примеру role_id, password
+55 | | 
+56 | |     :param user_db: Depends - Значение полученные из таблицы в открытой сессии:
+57 | |     :return: класс UserManager:
+58 | |     """
+   | |_______^ D400
+59 |       yield UserManager(user_db)
+   |
+   = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/manager.py:52:5: D415 First line should end with a period, question mark, or exclamation point
+   |
+51 |   async def get_user_manager(user_db=Depends(get_user_db)) -> UserManager:
+52 |       """
+   |  _____^
+53 | |     Функция для вызова Manager при создании пользователя.
+54 | |     Также нужен для валидации некоторых данных, к примеру role_id, password
+55 | | 
+56 | |     :param user_db: Depends - Значение полученные из таблицы в открытой сессии:
+57 | |     :return: класс UserManager:
+58 | |     """
+   | |_______^ D415
+59 |       yield UserManager(user_db)
+   |
+   = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/models.py:1:1: D205 1 blank line required between summary line and description
+  |
+1 | / """
+2 | |     Модуль, для будущих таблиц в базе данных. DB: "PostgreSQL"
+3 | |     Тут используется MetaData решение, сам же больше отдаю предпочтение `declarative_base`
+4 | |     Считаю что такой подход более правильным чем MetaData, его проще воспринимать и легче с ним работается.
+5 | | """
+  | |___^ D205
+6 |   from sqlalchemy import Table, Column, Integer, String, TIMESTAMP, MetaData, JSON, ForeignKey, Boolean
+  |
+  = help: Insert single blank line
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/models.py:1:1: D212 [*] Multi-line docstring summary should start at the first line
+  |
+1 | / """
+2 | |     Модуль, для будущих таблиц в базе данных. DB: "PostgreSQL"
+3 | |     Тут используется MetaData решение, сам же больше отдаю предпочтение `declarative_base`
+4 | |     Считаю что такой подход более правильным чем MetaData, его проще воспринимать и легче с ним работается.
+5 | | """
+  | |___^ D212
+6 |   from sqlalchemy import Table, Column, Integer, String, TIMESTAMP, MetaData, JSON, ForeignKey, Boolean
+  |
+  = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/models.py:2:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Модуль, для будущих таблиц в базе данных. DB: "PostgreSQL"
+  |  D208
+3 |     Тут используется MetaData решение, сам же больше отдаю предпочтение `declarative_base`
+4 |     Считаю что такой подход более правильным чем MetaData, его проще воспринимать и легче с ним работается.
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/models.py:3:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Модуль, для будущих таблиц в базе данных. DB: "PostgreSQL"
+3 |     Тут используется MetaData решение, сам же больше отдаю предпочтение `declarative_base`
+  |  D208
+4 |     Считаю что такой подход более правильным чем MetaData, его проще воспринимать и легче с ним работается.
+5 | """
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/models.py:4:1: D208 [*] Docstring is over-indented
+  |
+2 |     Модуль, для будущих таблиц в базе данных. DB: "PostgreSQL"
+3 |     Тут используется MetaData решение, сам же больше отдаю предпочтение `declarative_base`
+4 |     Считаю что такой подход более правильным чем MetaData, его проще воспринимать и легче с ним работается.
+  |  D208
+5 | """
+6 | from sqlalchemy import Table, Column, Integer, String, TIMESTAMP, MetaData, JSON, ForeignKey, Boolean
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/models.py:4:60: RUF002 Docstring contains ambiguous `е` (CYRILLIC SMALL LETTER IE). Did you mean `e` (LATIN SMALL LETTER E)?
+  |
+2 |     Модуль, для будущих таблиц в базе данных. DB: "PostgreSQL"
+3 |     Тут используется MetaData решение, сам же больше отдаю предпочтение `declarative_base`
+4 |     Считаю что такой подход более правильным чем MetaData, его проще воспринимать и легче с ним работается.
+  |                                                            ^ RUF002
+5 | """
+6 | from sqlalchemy import Table, Column, Integer, String, TIMESTAMP, MetaData, JSON, ForeignKey, Boolean
+  |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/models.py:4:61: RUF002 Docstring contains ambiguous `г` (CYRILLIC SMALL LETTER GHE). Did you mean `r` (LATIN SMALL LETTER R)?
+  |
+2 |     Модуль, для будущих таблиц в базе данных. DB: "PostgreSQL"
+3 |     Тут используется MetaData решение, сам же больше отдаю предпочтение `declarative_base`
+4 |     Считаю что такой подход более правильным чем MetaData, его проще воспринимать и легче с ним работается.
+  |                                                             ^ RUF002
+5 | """
+6 | from sqlalchemy import Table, Column, Integer, String, TIMESTAMP, MetaData, JSON, ForeignKey, Boolean
+  |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/models.py:4:62: RUF002 Docstring contains ambiguous `о` (CYRILLIC SMALL LETTER O). Did you mean `o` (LATIN SMALL LETTER O)?
+  |
+2 |     Модуль, для будущих таблиц в базе данных. DB: "PostgreSQL"
+3 |     Тут используется MetaData решение, сам же больше отдаю предпочтение `declarative_base`
+4 |     Считаю что такой подход более правильным чем MetaData, его проще воспринимать и легче с ним работается.
+  |                                                              ^ RUF002
+5 | """
+6 | from sqlalchemy import Table, Column, Integer, String, TIMESTAMP, MetaData, JSON, ForeignKey, Boolean
+  |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/models.py:4:91: RUF002 Docstring contains ambiguous `с` (CYRILLIC SMALL LETTER ES). Did you mean `c` (LATIN SMALL LETTER C)?
+  |
+2 |     Модуль, для будущих таблиц в базе данных. DB: "PostgreSQL"
+3 |     Тут используется MetaData решение, сам же больше отдаю предпочтение `declarative_base`
+4 |     Считаю что такой подход более правильным чем MetaData, его проще воспринимать и легче с ним работается.
+  |                                                                                           ^ RUF002
+5 | """
+6 | from sqlalchemy import Table, Column, Integer, String, TIMESTAMP, MetaData, JSON, ForeignKey, Boolean
+  |
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/strategy.py:1:1: D205 1 blank line required between summary line and description
+  |
+1 | / """
+2 | |     Модуль в котором реализована логика стратегии auth_backend: JWT + cookie
+3 | |     cookie_secure=False - Необходимо для создание куки на протоколе HTTP. Если сделать сертификат - параметр не нужен
+4 | | """
+  | |___^ D205
+5 |   from fastapi_users.authentication import CookieTransport, JWTStrategy, AuthenticationBackend
+  |
+  = help: Insert single blank line
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/strategy.py:1:1: D212 [*] Multi-line docstring summary should start at the first line
+  |
+1 | / """
+2 | |     Модуль в котором реализована логика стратегии auth_backend: JWT + cookie
+3 | |     cookie_secure=False - Необходимо для создание куки на протоколе HTTP. Если сделать сертификат - параметр не нужен
+4 | | """
+  | |___^ D212
+5 |   from fastapi_users.authentication import CookieTransport, JWTStrategy, AuthenticationBackend
+  |
+  = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/strategy.py:1:1: D400 First line should end with a period
+  |
+1 | / """
+2 | |     Модуль в котором реализована логика стратегии auth_backend: JWT + cookie
+3 | |     cookie_secure=False - Необходимо для создание куки на протоколе HTTP. Если сделать сертификат - параметр не нужен
+4 | | """
+  | |___^ D400
+5 |   from fastapi_users.authentication import CookieTransport, JWTStrategy, AuthenticationBackend
+  |
+  = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/strategy.py:1:1: D415 First line should end with a period, question mark, or exclamation point
+  |
+1 | / """
+2 | |     Модуль в котором реализована логика стратегии auth_backend: JWT + cookie
+3 | |     cookie_secure=False - Необходимо для создание куки на протоколе HTTP. Если сделать сертификат - параметр не нужен
+4 | | """
+  | |___^ D415
+5 |   from fastapi_users.authentication import CookieTransport, JWTStrategy, AuthenticationBackend
+  |
+  = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/strategy.py:2:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Модуль в котором реализована логика стратегии auth_backend: JWT + cookie
+  |  D208
+3 |     cookie_secure=False - Необходимо для создание куки на протоколе HTTP. Если сделать сертификат - параметр не нужен
+4 | """
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/strategy.py:3:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Модуль в котором реализована логика стратегии auth_backend: JWT + cookie
+3 |     cookie_secure=False - Необходимо для создание куки на протоколе HTTP. Если сделать сертификат - параметр не нужен
+  |  D208
+4 | """
+5 | from fastapi_users.authentication import CookieTransport, JWTStrategy, AuthenticationBackend
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/strategy.py:14:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+13 |   def get_jwt_strategy() -> JWTStrategy:
+14 |       """
+   |  _____^
+15 | |     Функция, реализующая стратегию через: JWT + cookie
+16 | | 
+17 | |     :return: класс JWTStrategy
+18 | |     """
+   | |_______^ D212
+19 |       return JWTStrategy(secret=JWT_SECRET, lifetime_seconds=3600)
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/strategy.py:14:5: D400 First line should end with a period
+   |
+13 |   def get_jwt_strategy() -> JWTStrategy:
+14 |       """
+   |  _____^
+15 | |     Функция, реализующая стратегию через: JWT + cookie
+16 | | 
+17 | |     :return: класс JWTStrategy
+18 | |     """
+   | |_______^ D400
+19 |       return JWTStrategy(secret=JWT_SECRET, lifetime_seconds=3600)
+   |
+   = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/auth/strategy.py:14:5: D415 First line should end with a period, question mark, or exclamation point
+   |
+13 |   def get_jwt_strategy() -> JWTStrategy:
+14 |       """
+   |  _____^
+15 | |     Функция, реализующая стратегию через: JWT + cookie
+16 | | 
+17 | |     :return: класс JWTStrategy
+18 | |     """
+   | |_______^ D415
+19 |       return JWTStrategy(secret=JWT_SECRET, lifetime_seconds=3600)
+   |
+   = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:1:1: D205 1 blank line required between summary line and description
+  |
+1 | / """
+2 | |     Основной модуль приложение.
+3 | |     Здесь запросы как для отображения страниц, так и для основной логики запросов.
+4 | | """
+  | |___^ D205
+5 |   from datetime import datetime, timedelta
+  |
+  = help: Insert single blank line
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:1:1: D212 [*] Multi-line docstring summary should start at the first line
+  |
+1 | / """
+2 | |     Основной модуль приложение.
+3 | |     Здесь запросы как для отображения страниц, так и для основной логики запросов.
+4 | | """
+  | |___^ D212
+5 |   from datetime import datetime, timedelta
+  |
+  = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:2:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Основной модуль приложение.
+  |  D208
+3 |     Здесь запросы как для отображения страниц, так и для основной логики запросов.
+4 | """
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:3:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Основной модуль приложение.
+3 |     Здесь запросы как для отображения страниц, так и для основной логики запросов.
+  |  D208
+4 | """
+5 | from datetime import datetime, timedelta
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:35:11: ANN201 Missing return type annotation for public function `http_exception_handler`
+   |
+34 | @app.exception_handler(HTTPException)
+35 | async def http_exception_handler(request: Request, exc: status):
+   |           ^^^^^^^^^^^^^^^^^^^^^^ ANN201
+36 |     """
+37 |     Кастомный обработчик ошибок в приложение при запросах.
+   |
+   = help: Add return type annotation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:36:5: D200 One-line docstring should fit on one line
+   |
+34 |   @app.exception_handler(HTTPException)
+35 |   async def http_exception_handler(request: Request, exc: status):
+36 |       """
+   |  _____^
+37 | |     Кастомный обработчик ошибок в приложение при запросах.
+38 | |     """
+   | |_______^ D200
+39 |       if exc.status_code == 401:
+40 |           return templates.TemplateResponse("authorization.html", {"request": request})
+   |
+   = help: Reformat to one line
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:36:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+34 |   @app.exception_handler(HTTPException)
+35 |   async def http_exception_handler(request: Request, exc: status):
+36 |       """
+   |  _____^
+37 | |     Кастомный обработчик ошибок в приложение при запросах.
+38 | |     """
+   | |_______^ D212
+39 |       if exc.status_code == 401:
+40 |           return templates.TemplateResponse("authorization.html", {"request": request})
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:39:27: PLR2004 Magic value used in comparison, consider replacing 401 with a constant variable
+   |
+37 |     Кастомный обработчик ошибок в приложение при запросах.
+38 |     """
+39 |     if exc.status_code == 401:
+   |                           ^^^ PLR2004
+40 |         return templates.TemplateResponse("authorization.html", {"request": request})
+41 |     if exc.status_code == 403:
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:41:27: PLR2004 Magic value used in comparison, consider replacing 403 with a constant variable
+   |
+39 |     if exc.status_code == 401:
+40 |         return templates.TemplateResponse("authorization.html", {"request": request})
+41 |     if exc.status_code == 403:
+   |                           ^^^ PLR2004
+42 |         return JSONResponse(content={"error": "Access denied"}, status_code=403)
+43 |     return RedirectResponse(url="/", status_code=exc.status_code)
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:48:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+46 |   @app.on_event("startup")
+47 |   def startup_event() -> None:
+48 |       """
+   |  _____^
+49 | |     Функция, при запуске приложение делает вызов модели глобальным.
+50 | | 
+51 | |     :return None:
+52 | |     """
+   | |_______^ D212
+53 |       global model
+54 |       model = load_model()
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:53:12: PLW0603 Using the global statement to update `model` is discouraged
+   |
+51 |     :return None:
+52 |     """
+53 |     global model
+   |            ^^^^^ PLW0603
+54 |     model = load_model()
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:58:5: D205 1 blank line required between summary line and description
+   |
+57 |   def get_user_limits(role_id: int) -> tuple:
+58 |       """
+   |  _____^
+59 | | 
+60 | |     :param role_id: int - ID роли (1, 2, 3):
+61 | |     :return tuple: Возвращает кортеж со значением о количестве запросов и символов в запросе для конкретной роли:
+62 | |     """
+   | |_______^ D205
+63 |       permissions = get_permissions_by_id(role_id)
+64 |       return permissions[0], permissions[1]
+   |
+   = help: Insert single blank line
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:58:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+57 |   def get_user_limits(role_id: int) -> tuple:
+58 |       """
+   |  _____^
+59 | | 
+60 | |     :param role_id: int - ID роли (1, 2, 3):
+61 | |     :return tuple: Возвращает кортеж со значением о количестве запросов и символов в запросе для конкретной роли:
+62 | |     """
+   | |_______^ D212
+63 |       permissions = get_permissions_by_id(role_id)
+64 |       return permissions[0], permissions[1]
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:61:38: RUF002 Docstring contains ambiguous `с` (CYRILLIC SMALL LETTER ES). Did you mean `c` (LATIN SMALL LETTER C)?
+   |
+60 |     :param role_id: int - ID роли (1, 2, 3):
+61 |     :return tuple: Возвращает кортеж со значением о количестве запросов и символов в запросе для конкретной роли:
+   |                                      ^ RUF002
+62 |     """
+63 |     permissions = get_permissions_by_id(role_id)
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:61:39: RUF002 Docstring contains ambiguous `о` (CYRILLIC SMALL LETTER O). Did you mean `o` (LATIN SMALL LETTER O)?
+   |
+60 |     :param role_id: int - ID роли (1, 2, 3):
+61 |     :return tuple: Возвращает кортеж со значением о количестве запросов и символов в запросе для конкретной роли:
+   |                                       ^ RUF002
+62 |     """
+63 |     permissions = get_permissions_by_id(role_id)
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:61:51: RUF002 Docstring contains ambiguous `о` (CYRILLIC SMALL LETTER O). Did you mean `o` (LATIN SMALL LETTER O)?
+   |
+60 |     :param role_id: int - ID роли (1, 2, 3):
+61 |     :return tuple: Возвращает кортеж со значением о количестве запросов и символов в запросе для конкретной роли:
+   |                                                   ^ RUF002
+62 |     """
+63 |     permissions = get_permissions_by_id(role_id)
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:68:5: D205 1 blank line required between summary line and description
+   |
+67 |   def check_quotes(user_id: int, _requests: int) -> int:
+68 |       """
+   |  _____^
+69 | |     Функция, которая проверяет конкретного пользователя за превышение количество запросов.
+70 | |     Также каждый день - запросы обновляется, и счётчик отчитывается заново.
+71 | | 
+72 | |     :param user_id: int - ID пользователя User:
+73 | |     :param _requests: int - Ограниченное количество запросов для роли:
+74 | |     :return int: ID пользователя User:
+75 | |     """
+   | |_______^ D205
+76 |       if user_id not in user_quotes:
+77 |           user_quotes[user_id] = {
+   |
+   = help: Insert single blank line
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:68:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+67 |   def check_quotes(user_id: int, _requests: int) -> int:
+68 |       """
+   |  _____^
+69 | |     Функция, которая проверяет конкретного пользователя за превышение количество запросов.
+70 | |     Также каждый день - запросы обновляется, и счётчик отчитывается заново.
+71 | | 
+72 | |     :param user_id: int - ID пользователя User:
+73 | |     :param _requests: int - Ограниченное количество запросов для роли:
+74 | |     :return int: ID пользователя User:
+75 | |     """
+   | |_______^ D212
+76 |       if user_id not in user_quotes:
+77 |           user_quotes[user_id] = {
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:96:11: ANN201 Missing return type annotation for public function `check_limits`
+   |
+96 | async def check_limits(text: str = Form(...), current_user: User = Depends(current_active_user)):
+   |           ^^^^^^^^^^^^ ANN201
+97 |     """
+98 |     Функция, которая проверяет конкретного пользователя за превышение количество символов в запросе.
+   |
+   = help: Add return type annotation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:96:68: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+   |
+96 | async def check_limits(text: str = Form(...), current_user: User = Depends(current_active_user)):
+   |                                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ B008
+97 |     """
+98 |     Функция, которая проверяет конкретного пользователя за превышение количество символов в запросе.
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:97:5: D212 [*] Multi-line docstring summary should start at the first line
+    |
+ 96 |   async def check_limits(text: str = Form(...), current_user: User = Depends(current_active_user)):
+ 97 |       """
+    |  _____^
+ 98 | |     Функция, которая проверяет конкретного пользователя за превышение количество символов в запросе.
+ 99 | | 
+100 | |     :param text: str - Текст полученный из введенной в форму на вебе:
+101 | |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+102 | |     :return str: Возвращает текст:
+103 | |     """
+    | |_______^ D212
+104 |       role_id = current_user.role_id
+105 |       _req, _sym = get_user_limits(role_id)
+    |
+    = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:120:65: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+    |
+118 | @app.post("/predict", tags=["app"],)
+119 | async def predict_sentiment(
+120 |         text: str = Depends(check_limits), current_user: User = Depends(current_active_user)) -> SentimentResponse:
+    |                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ B008
+121 |     """
+122 |     Главный запрос приложения, который отправляет на форму текст - анализируется и выдает ответ.
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:121:5: D202 [*] No blank lines allowed after function docstring (found 1)
+    |
+119 |   async def predict_sentiment(
+120 |           text: str = Depends(check_limits), current_user: User = Depends(current_active_user)) -> SentimentResponse:
+121 |       """
+    |  _____^
+122 | |     Главный запрос приложения, который отправляет на форму текст - анализируется и выдает ответ.
+123 | | 
+124 | |     :param text: Depends(check_limits) Зависимость от текста проверенного в функции check_limits:
+125 | |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+126 | |     :return SentimentResponse: Возвращает ответ в виде схемы SentimentResponse:
+127 | |     """
+    | |_______^ D202
+128 |   
+129 |       sentiment = model(text)
+    |
+    = help: Remove blank line(s) after function docstring
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:121:5: D212 [*] Multi-line docstring summary should start at the first line
+    |
+119 |   async def predict_sentiment(
+120 |           text: str = Depends(check_limits), current_user: User = Depends(current_active_user)) -> SentimentResponse:
+121 |       """
+    |  _____^
+122 | |     Главный запрос приложения, который отправляет на форму текст - анализируется и выдает ответ.
+123 | | 
+124 | |     :param text: Depends(check_limits) Зависимость от текста проверенного в функции check_limits:
+125 | |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+126 | |     :return SentimentResponse: Возвращает ответ в виде схемы SentimentResponse:
+127 | |     """
+    | |_______^ D212
+128 |   
+129 |       sentiment = model(text)
+    |
+    = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:136:11: ANN201 Missing return type annotation for public function `show_result`
+    |
+135 | @app.get("/", response_class=HTMLResponse, tags=["app"])
+136 | async def show_result(request: Request, current_user: User = Depends(current_active_user)):
+    |           ^^^^^^^^^^^ ANN201
+137 |     """
+138 |     Главная(Корневая "/") страница приложения.
+    |
+    = help: Add return type annotation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:136:62: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+    |
+135 | @app.get("/", response_class=HTMLResponse, tags=["app"])
+136 | async def show_result(request: Request, current_user: User = Depends(current_active_user)):
+    |                                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ B008
+137 |     """
+138 |     Главная(Корневая "/") страница приложения.
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:137:5: D212 [*] Multi-line docstring summary should start at the first line
+    |
+135 |   @app.get("/", response_class=HTMLResponse, tags=["app"])
+136 |   async def show_result(request: Request, current_user: User = Depends(current_active_user)):
+137 |       """
+    |  _____^
+138 | |     Главная(Корневая "/") страница приложения.
+139 | | 
+140 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+141 | |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+142 | |     :return TemplateResponse: Отображает страницу в HTML формате:
+143 | |     """
+    | |_______^ D212
+144 |       username = current_user.username
+145 |       context = {
+    |
+    = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:140:64: RUF002 Docstring contains ambiguous `с` (CYRILLIC SMALL LETTER ES). Did you mean `c` (LATIN SMALL LETTER C)?
+    |
+138 |     Главная(Корневая "/") страница приложения.
+139 | 
+140 |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+    |                                                                ^ RUF002
+141 |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+142 |     :return TemplateResponse: Отображает страницу в HTML формате:
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:154:11: ANN201 Missing return type annotation for public function `registration`
+    |
+153 | @app.get("/reg", response_class=HTMLResponse, tags=["app"],)
+154 | async def registration(request: Request):
+    |           ^^^^^^^^^^^^ ANN201
+155 |     """
+156 |     Функция для отображения страницы "Регистрация"
+    |
+    = help: Add return type annotation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:155:5: D212 [*] Multi-line docstring summary should start at the first line
+    |
+153 |   @app.get("/reg", response_class=HTMLResponse, tags=["app"],)
+154 |   async def registration(request: Request):
+155 |       """
+    |  _____^
+156 | |     Функция для отображения страницы "Регистрация"
+157 | | 
+158 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+159 | |     :return TemplateResponse: Отображает страницу в HTML формате:
+160 | |     """
+    | |_______^ D212
+161 |       return templates.TemplateResponse("registration.html", {"request": request})
+    |
+    = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:155:5: D400 First line should end with a period
+    |
+153 |   @app.get("/reg", response_class=HTMLResponse, tags=["app"],)
+154 |   async def registration(request: Request):
+155 |       """
+    |  _____^
+156 | |     Функция для отображения страницы "Регистрация"
+157 | | 
+158 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+159 | |     :return TemplateResponse: Отображает страницу в HTML формате:
+160 | |     """
+    | |_______^ D400
+161 |       return templates.TemplateResponse("registration.html", {"request": request})
+    |
+    = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:155:5: D415 First line should end with a period, question mark, or exclamation point
+    |
+153 |   @app.get("/reg", response_class=HTMLResponse, tags=["app"],)
+154 |   async def registration(request: Request):
+155 |       """
+    |  _____^
+156 | |     Функция для отображения страницы "Регистрация"
+157 | | 
+158 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+159 | |     :return TemplateResponse: Отображает страницу в HTML формате:
+160 | |     """
+    | |_______^ D415
+161 |       return templates.TemplateResponse("registration.html", {"request": request})
+    |
+    = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:158:64: RUF002 Docstring contains ambiguous `с` (CYRILLIC SMALL LETTER ES). Did you mean `c` (LATIN SMALL LETTER C)?
+    |
+156 |     Функция для отображения страницы "Регистрация"
+157 | 
+158 |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+    |                                                                ^ RUF002
+159 |     :return TemplateResponse: Отображает страницу в HTML формате:
+160 |     """
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:165:11: ANN201 Missing return type annotation for public function `authorization`
+    |
+164 | @app.get("/login", response_class=HTMLResponse, tags=["app"],)
+165 | async def authorization(request: Request):
+    |           ^^^^^^^^^^^^^ ANN201
+166 |     """
+167 |     Функция для отображения страницы "Авторизация"
+    |
+    = help: Add return type annotation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:166:5: D212 [*] Multi-line docstring summary should start at the first line
+    |
+164 |   @app.get("/login", response_class=HTMLResponse, tags=["app"],)
+165 |   async def authorization(request: Request):
+166 |       """
+    |  _____^
+167 | |     Функция для отображения страницы "Авторизация"
+168 | | 
+169 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+170 | |     :return TemplateResponse: Отображает страницу в HTML формате:
+171 | |     """
+    | |_______^ D212
+172 |       return templates.TemplateResponse("authorization.html", {"request": request})
+    |
+    = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:166:5: D400 First line should end with a period
+    |
+164 |   @app.get("/login", response_class=HTMLResponse, tags=["app"],)
+165 |   async def authorization(request: Request):
+166 |       """
+    |  _____^
+167 | |     Функция для отображения страницы "Авторизация"
+168 | | 
+169 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+170 | |     :return TemplateResponse: Отображает страницу в HTML формате:
+171 | |     """
+    | |_______^ D400
+172 |       return templates.TemplateResponse("authorization.html", {"request": request})
+    |
+    = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:166:5: D415 First line should end with a period, question mark, or exclamation point
+    |
+164 |   @app.get("/login", response_class=HTMLResponse, tags=["app"],)
+165 |   async def authorization(request: Request):
+166 |       """
+    |  _____^
+167 | |     Функция для отображения страницы "Авторизация"
+168 | | 
+169 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+170 | |     :return TemplateResponse: Отображает страницу в HTML формате:
+171 | |     """
+    | |_______^ D415
+172 |       return templates.TemplateResponse("authorization.html", {"request": request})
+    |
+    = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:169:64: RUF002 Docstring contains ambiguous `с` (CYRILLIC SMALL LETTER ES). Did you mean `c` (LATIN SMALL LETTER C)?
+    |
+167 |     Функция для отображения страницы "Авторизация"
+168 | 
+169 |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+    |                                                                ^ RUF002
+170 |     :return TemplateResponse: Отображает страницу в HTML формате:
+171 |     """
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:176:11: ANN201 Missing return type annotation for public function `user_profile`
+    |
+175 | @app.get("/profile", response_class=HTMLResponse, tags=["user"],)
+176 | async def user_profile(request: Request, current_user: User = Depends(current_active_user)):
+    |           ^^^^^^^^^^^^ ANN201
+177 |     """
+178 |     Функция для отображения страницы "Профиль пользователя"
+    |
+    = help: Add return type annotation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:176:63: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+    |
+175 | @app.get("/profile", response_class=HTMLResponse, tags=["user"],)
+176 | async def user_profile(request: Request, current_user: User = Depends(current_active_user)):
+    |                                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ B008
+177 |     """
+178 |     Функция для отображения страницы "Профиль пользователя"
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:177:5: D212 [*] Multi-line docstring summary should start at the first line
+    |
+175 |   @app.get("/profile", response_class=HTMLResponse, tags=["user"],)
+176 |   async def user_profile(request: Request, current_user: User = Depends(current_active_user)):
+177 |       """
+    |  _____^
+178 | |     Функция для отображения страницы "Профиль пользователя"
+179 | | 
+180 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+181 | |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+182 | |     :return TemplateResponse: Отображает страницу в HTML формате:
+183 | |     """
+    | |_______^ D212
+184 |       username = current_user.username
+185 |       email = current_user.email
+    |
+    = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:177:5: D400 First line should end with a period
+    |
+175 |   @app.get("/profile", response_class=HTMLResponse, tags=["user"],)
+176 |   async def user_profile(request: Request, current_user: User = Depends(current_active_user)):
+177 |       """
+    |  _____^
+178 | |     Функция для отображения страницы "Профиль пользователя"
+179 | | 
+180 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+181 | |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+182 | |     :return TemplateResponse: Отображает страницу в HTML формате:
+183 | |     """
+    | |_______^ D400
+184 |       username = current_user.username
+185 |       email = current_user.email
+    |
+    = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:177:5: D415 First line should end with a period, question mark, or exclamation point
+    |
+175 |   @app.get("/profile", response_class=HTMLResponse, tags=["user"],)
+176 |   async def user_profile(request: Request, current_user: User = Depends(current_active_user)):
+177 |       """
+    |  _____^
+178 | |     Функция для отображения страницы "Профиль пользователя"
+179 | | 
+180 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+181 | |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+182 | |     :return TemplateResponse: Отображает страницу в HTML формате:
+183 | |     """
+    | |_______^ D415
+184 |       username = current_user.username
+185 |       email = current_user.email
+    |
+    = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:180:64: RUF002 Docstring contains ambiguous `с` (CYRILLIC SMALL LETTER ES). Did you mean `c` (LATIN SMALL LETTER C)?
+    |
+178 |     Функция для отображения страницы "Профиль пользователя"
+179 | 
+180 |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+    |                                                                ^ RUF002
+181 |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+182 |     :return TemplateResponse: Отображает страницу в HTML формате:
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:204:11: ANN201 Missing return type annotation for public function `purchase_superuser`
+    |
+203 | @app.get("/purchase", response_class=HTMLResponse, tags=["user"],)
+204 | async def purchase_superuser(request: Request, current_user: User = Depends(current_active_user)):
+    |           ^^^^^^^^^^^^^^^^^^ ANN201
+205 |     """
+206 |     Функция для отображения страницы "Покупка супер-пользователя"
+    |
+    = help: Add return type annotation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:204:69: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+    |
+203 | @app.get("/purchase", response_class=HTMLResponse, tags=["user"],)
+204 | async def purchase_superuser(request: Request, current_user: User = Depends(current_active_user)):
+    |                                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ B008
+205 |     """
+206 |     Функция для отображения страницы "Покупка супер-пользователя"
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:205:5: D212 [*] Multi-line docstring summary should start at the first line
+    |
+203 |   @app.get("/purchase", response_class=HTMLResponse, tags=["user"],)
+204 |   async def purchase_superuser(request: Request, current_user: User = Depends(current_active_user)):
+205 |       """
+    |  _____^
+206 | |     Функция для отображения страницы "Покупка супер-пользователя"
+207 | | 
+208 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+209 | |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+210 | |     :return TemplateResponse: Отображает страницу в HTML формате, либо RedirectResponse, если ты уже супер-пользователь:
+211 | |     """
+    | |_______^ D212
+212 |       if current_user.is_superuser:
+213 |           return RedirectResponse(url="/profile", status_code=303)
+    |
+    = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:205:5: D400 First line should end with a period
+    |
+203 |   @app.get("/purchase", response_class=HTMLResponse, tags=["user"],)
+204 |   async def purchase_superuser(request: Request, current_user: User = Depends(current_active_user)):
+205 |       """
+    |  _____^
+206 | |     Функция для отображения страницы "Покупка супер-пользователя"
+207 | | 
+208 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+209 | |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+210 | |     :return TemplateResponse: Отображает страницу в HTML формате, либо RedirectResponse, если ты уже супер-пользователь:
+211 | |     """
+    | |_______^ D400
+212 |       if current_user.is_superuser:
+213 |           return RedirectResponse(url="/profile", status_code=303)
+    |
+    = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:205:5: D415 First line should end with a period, question mark, or exclamation point
+    |
+203 |   @app.get("/purchase", response_class=HTMLResponse, tags=["user"],)
+204 |   async def purchase_superuser(request: Request, current_user: User = Depends(current_active_user)):
+205 |       """
+    |  _____^
+206 | |     Функция для отображения страницы "Покупка супер-пользователя"
+207 | | 
+208 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+209 | |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+210 | |     :return TemplateResponse: Отображает страницу в HTML формате, либо RedirectResponse, если ты уже супер-пользователь:
+211 | |     """
+    | |_______^ D415
+212 |       if current_user.is_superuser:
+213 |           return RedirectResponse(url="/profile", status_code=303)
+    |
+    = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:208:64: RUF002 Docstring contains ambiguous `с` (CYRILLIC SMALL LETTER ES). Did you mean `c` (LATIN SMALL LETTER C)?
+    |
+206 |     Функция для отображения страницы "Покупка супер-пользователя"
+207 | 
+208 |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+    |                                                                ^ RUF002
+209 |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+210 |     :return TemplateResponse: Отображает страницу в HTML формате, либо RedirectResponse, если ты уже супер-пользователь:
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:225:11: ANN201 Missing return type annotation for public function `authorization`
+    |
+224 | @app.get("/purchase_failed", response_class=HTMLResponse, tags=["user"],)
+225 | async def authorization(request: Request, current_user: User = Depends(current_active_user)):
+    |           ^^^^^^^^^^^^^ ANN201
+226 |     """
+227 |     Функция для отображения страницы "Неуспешная покупка"
+    |
+    = help: Add return type annotation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:225:11: F811 Redefinition of unused `authorization` from line 165
+    |
+224 | @app.get("/purchase_failed", response_class=HTMLResponse, tags=["user"],)
+225 | async def authorization(request: Request, current_user: User = Depends(current_active_user)):
+    |           ^^^^^^^^^^^^^ F811
+226 |     """
+227 |     Функция для отображения страницы "Неуспешная покупка"
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:225:64: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+    |
+224 | @app.get("/purchase_failed", response_class=HTMLResponse, tags=["user"],)
+225 | async def authorization(request: Request, current_user: User = Depends(current_active_user)):
+    |                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ B008
+226 |     """
+227 |     Функция для отображения страницы "Неуспешная покупка"
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:226:5: D212 [*] Multi-line docstring summary should start at the first line
+    |
+224 |   @app.get("/purchase_failed", response_class=HTMLResponse, tags=["user"],)
+225 |   async def authorization(request: Request, current_user: User = Depends(current_active_user)):
+226 |       """
+    |  _____^
+227 | |     Функция для отображения страницы "Неуспешная покупка"
+228 | | 
+229 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+230 | |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+231 | |     :return TemplateResponse: Отображает страницу в HTML формате:
+232 | |     """
+    | |_______^ D212
+233 |       username = current_user.username
+234 |       return templates.TemplateResponse("purchase_failed.html", {"request": request, "username": username})
+    |
+    = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:226:5: D400 First line should end with a period
+    |
+224 |   @app.get("/purchase_failed", response_class=HTMLResponse, tags=["user"],)
+225 |   async def authorization(request: Request, current_user: User = Depends(current_active_user)):
+226 |       """
+    |  _____^
+227 | |     Функция для отображения страницы "Неуспешная покупка"
+228 | | 
+229 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+230 | |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+231 | |     :return TemplateResponse: Отображает страницу в HTML формате:
+232 | |     """
+    | |_______^ D400
+233 |       username = current_user.username
+234 |       return templates.TemplateResponse("purchase_failed.html", {"request": request, "username": username})
+    |
+    = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:226:5: D415 First line should end with a period, question mark, or exclamation point
+    |
+224 |   @app.get("/purchase_failed", response_class=HTMLResponse, tags=["user"],)
+225 |   async def authorization(request: Request, current_user: User = Depends(current_active_user)):
+226 |       """
+    |  _____^
+227 | |     Функция для отображения страницы "Неуспешная покупка"
+228 | | 
+229 | |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+230 | |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+231 | |     :return TemplateResponse: Отображает страницу в HTML формате:
+232 | |     """
+    | |_______^ D415
+233 |       username = current_user.username
+234 |       return templates.TemplateResponse("purchase_failed.html", {"request": request, "username": username})
+    |
+    = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:229:64: RUF002 Docstring contains ambiguous `с` (CYRILLIC SMALL LETTER ES). Did you mean `c` (LATIN SMALL LETTER C)?
+    |
+227 |     Функция для отображения страницы "Неуспешная покупка"
+228 | 
+229 |     :param request: Request - обязательный аргумент при работе с FastAPI(HTML):
+    |                                                                ^ RUF002
+230 |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+231 |     :return TemplateResponse: Отображает страницу в HTML формате:
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:238:11: ANN201 Missing return type annotation for public function `handle_purchase`
+    |
+237 | @app.post("/purchase", response_class=HTMLResponse, tags=["user"])
+238 | async def handle_purchase(
+    |           ^^^^^^^^^^^^^^^ ANN201
+239 |         code: str = Form(...),
+240 |         current_user: User = Depends(current_active_user),
+    |
+    = help: Add return type annotation
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:240:30: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+    |
+238 | async def handle_purchase(
+239 |         code: str = Form(...),
+240 |         current_user: User = Depends(current_active_user),
+    |                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ B008
+241 |         db: Session = Depends(get_async_session)
+242 | ):
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:241:23: B008 Do not perform function call `Depends` in argument defaults; instead, perform the call within the function, or read the default from a module-level singleton variable
+    |
+239 |         code: str = Form(...),
+240 |         current_user: User = Depends(current_active_user),
+241 |         db: Session = Depends(get_async_session)
+    |                       ^^^^^^^^^^^^^^^^^^^^^^^^^^ B008
+242 | ):
+243 |     """
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:243:5: D212 [*] Multi-line docstring summary should start at the first line
+    |
+241 |           db: Session = Depends(get_async_session)
+242 |   ):
+243 |       """
+    |  _____^
+244 | |     Функция для обработки покупки супер-пользователя, при вводе кода с нужной логикой.
+245 | | 
+246 | |     :param code: str - Код, который "покупается" для повышения прав пользователей:
+247 | |     :param current_user: User(Depends) - Зависимость от авторизованного пользователя:
+248 | |     :param db: Session(get_async_session) - Асинхронная сессия к базе данных:
+249 | |     :return RedirectResponse: После валидации кода, идёт редирект в зависимости от введенного кода (Правильный или Нет):
+250 | |     """
+    | |_______^ D212
+251 |       ROLES_MAPPING = {
+252 |           SUPERUSER_CODE: {"role_id": 2, "is_superuser": True},
+    |
+    = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:244:70: RUF002 Docstring contains ambiguous `с` (CYRILLIC SMALL LETTER ES). Did you mean `c` (LATIN SMALL LETTER C)?
+    |
+242 | ):
+243 |     """
+244 |     Функция для обработки покупки супер-пользователя, при вводе кода с нужной логикой.
+    |                                                                      ^ RUF002
+245 | 
+246 |     :param code: str - Код, который "покупается" для повышения прав пользователей:
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/routers.py:251:5: N806 Variable `ROLES_MAPPING` in function should be lowercase
+    |
+249 |     :return RedirectResponse: После валидации кода, идёт редирект в зависимости от введенного кода (Правильный или Нет):
+250 |     """
+251 |     ROLES_MAPPING = {
+    |     ^^^^^^^^^^^^^ N806
+252 |         SUPERUSER_CODE: {"role_id": 2, "is_superuser": True},
+253 |         ADMIN_CODE: {"role_id": 3, "is_superuser": False}
+    |
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:1:1: D200 One-line docstring should fit on one line
+  |
+1 | / """
+2 | |     Модуль, который отвечает за хранение схем приложения.
+3 | | """
+  | |___^ D200
+4 |   from typing import Optional
+5 |   from dataclasses import dataclass
+  |
+  = help: Reformat to one line
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:1:1: D212 [*] Multi-line docstring summary should start at the first line
+  |
+1 | / """
+2 | |     Модуль, который отвечает за хранение схем приложения.
+3 | | """
+  | |___^ D212
+4 |   from typing import Optional
+5 |   from dataclasses import dataclass
+  |
+  = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:2:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Модуль, который отвечает за хранение схем приложения.
+  |  D208
+3 | """
+4 | from typing import Optional
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:13:5: D204 [*] 1 blank line required after class docstring
+   |
+11 |   @dataclass
+12 |   class SentimentPrediction:
+13 |       """
+   |  _____^
+14 | |     Схема(Класс) для ответа модели в формате dataclass, используется в самой модели и тестах
+15 | | 
+16 | |     :attribute label: str - Оценка текста, в виде - (positive, neutral, negative):
+17 | |     :attribute score: float - Счет точности оценки текста:
+18 | |     """
+   | |_______^ D204
+19 |       label: str
+20 |       score: float
+   |
+   = help: Insert 1 blank line after class docstring
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:13:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+11 |   @dataclass
+12 |   class SentimentPrediction:
+13 |       """
+   |  _____^
+14 | |     Схема(Класс) для ответа модели в формате dataclass, используется в самой модели и тестах
+15 | | 
+16 | |     :attribute label: str - Оценка текста, в виде - (positive, neutral, negative):
+17 | |     :attribute score: float - Счет точности оценки текста:
+18 | |     """
+   | |_______^ D212
+19 |       label: str
+20 |       score: float
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:13:5: D400 First line should end with a period
+   |
+11 |   @dataclass
+12 |   class SentimentPrediction:
+13 |       """
+   |  _____^
+14 | |     Схема(Класс) для ответа модели в формате dataclass, используется в самой модели и тестах
+15 | | 
+16 | |     :attribute label: str - Оценка текста, в виде - (positive, neutral, negative):
+17 | |     :attribute score: float - Счет точности оценки текста:
+18 | |     """
+   | |_______^ D400
+19 |       label: str
+20 |       score: float
+   |
+   = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:13:5: D415 First line should end with a period, question mark, or exclamation point
+   |
+11 |   @dataclass
+12 |   class SentimentPrediction:
+13 |       """
+   |  _____^
+14 | |     Схема(Класс) для ответа модели в формате dataclass, используется в самой модели и тестах
+15 | | 
+16 | |     :attribute label: str - Оценка текста, в виде - (positive, neutral, negative):
+17 | |     :attribute score: float - Счет точности оценки текста:
+18 | |     """
+   | |_______^ D415
+19 |       label: str
+20 |       score: float
+   |
+   = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:24:5: D204 [*] 1 blank line required after class docstring
+   |
+23 |   class SentimentResponse(BaseModel):
+24 |       """
+   |  _____^
+25 | |     Схема(Класс) для ответа модели в формате pydantic, используется в качестве ответа на запрос в FastAPI
+26 | | 
+27 | |     :attribute text: str - Текст, переданный в запросе для анализа:
+28 | |     :attribute sentiment_label: str - Оценка текста, в виде - (positive, neutral, negative):
+29 | |     :attribute sentiment_score: float - Счет точности оценки текста:
+30 | |     """
+   | |_______^ D204
+31 |       text: str
+32 |       sentiment_label: str
+   |
+   = help: Insert 1 blank line after class docstring
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:24:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+23 |   class SentimentResponse(BaseModel):
+24 |       """
+   |  _____^
+25 | |     Схема(Класс) для ответа модели в формате pydantic, используется в качестве ответа на запрос в FastAPI
+26 | | 
+27 | |     :attribute text: str - Текст, переданный в запросе для анализа:
+28 | |     :attribute sentiment_label: str - Оценка текста, в виде - (positive, neutral, negative):
+29 | |     :attribute sentiment_score: float - Счет точности оценки текста:
+30 | |     """
+   | |_______^ D212
+31 |       text: str
+32 |       sentiment_label: str
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:24:5: D400 First line should end with a period
+   |
+23 |   class SentimentResponse(BaseModel):
+24 |       """
+   |  _____^
+25 | |     Схема(Класс) для ответа модели в формате pydantic, используется в качестве ответа на запрос в FastAPI
+26 | | 
+27 | |     :attribute text: str - Текст, переданный в запросе для анализа:
+28 | |     :attribute sentiment_label: str - Оценка текста, в виде - (positive, neutral, negative):
+29 | |     :attribute sentiment_score: float - Счет точности оценки текста:
+30 | |     """
+   | |_______^ D400
+31 |       text: str
+32 |       sentiment_label: str
+   |
+   = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:24:5: D415 First line should end with a period, question mark, or exclamation point
+   |
+23 |   class SentimentResponse(BaseModel):
+24 |       """
+   |  _____^
+25 | |     Схема(Класс) для ответа модели в формате pydantic, используется в качестве ответа на запрос в FastAPI
+26 | | 
+27 | |     :attribute text: str - Текст, переданный в запросе для анализа:
+28 | |     :attribute sentiment_label: str - Оценка текста, в виде - (positive, neutral, negative):
+29 | |     :attribute sentiment_score: float - Счет точности оценки текста:
+30 | |     """
+   | |_______^ D415
+31 |       text: str
+32 |       sentiment_label: str
+   |
+   = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:37:5: D204 [*] 1 blank line required after class docstring
+   |
+36 |   class UserRead(schemas.BaseUser[int]):
+37 |       """
+   |  _____^
+38 | |     Схема(Класс) для чтение данных о пользователе
+39 | | 
+40 | |     :attribute id: int - Уникальное значение пользователя:
+41 | |     :attribute username: str - Никнейм/Имя пользователя:
+42 | |     :attribute email: str - Электронный адрес пользователя:
+43 | |     :attribute role_id: int - Уникальное значение роли:
+44 | |     :attribute is_active: bool - Активный пользователь или нет:
+45 | |     :attribute is_superuser: bool - Супер пользователь или нет:
+46 | |     :attribute is_verified: bool - Верифицирован пользователь или нет:
+47 | |     """
+   | |_______^ D204
+48 |       id: int
+49 |       username: str
+   |
+   = help: Insert 1 blank line after class docstring
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:37:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+36 |   class UserRead(schemas.BaseUser[int]):
+37 |       """
+   |  _____^
+38 | |     Схема(Класс) для чтение данных о пользователе
+39 | | 
+40 | |     :attribute id: int - Уникальное значение пользователя:
+41 | |     :attribute username: str - Никнейм/Имя пользователя:
+42 | |     :attribute email: str - Электронный адрес пользователя:
+43 | |     :attribute role_id: int - Уникальное значение роли:
+44 | |     :attribute is_active: bool - Активный пользователь или нет:
+45 | |     :attribute is_superuser: bool - Супер пользователь или нет:
+46 | |     :attribute is_verified: bool - Верифицирован пользователь или нет:
+47 | |     """
+   | |_______^ D212
+48 |       id: int
+49 |       username: str
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:37:5: D400 First line should end with a period
+   |
+36 |   class UserRead(schemas.BaseUser[int]):
+37 |       """
+   |  _____^
+38 | |     Схема(Класс) для чтение данных о пользователе
+39 | | 
+40 | |     :attribute id: int - Уникальное значение пользователя:
+41 | |     :attribute username: str - Никнейм/Имя пользователя:
+42 | |     :attribute email: str - Электронный адрес пользователя:
+43 | |     :attribute role_id: int - Уникальное значение роли:
+44 | |     :attribute is_active: bool - Активный пользователь или нет:
+45 | |     :attribute is_superuser: bool - Супер пользователь или нет:
+46 | |     :attribute is_verified: bool - Верифицирован пользователь или нет:
+47 | |     """
+   | |_______^ D400
+48 |       id: int
+49 |       username: str
+   |
+   = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:37:5: D415 First line should end with a period, question mark, or exclamation point
+   |
+36 |   class UserRead(schemas.BaseUser[int]):
+37 |       """
+   |  _____^
+38 | |     Схема(Класс) для чтение данных о пользователе
+39 | | 
+40 | |     :attribute id: int - Уникальное значение пользователя:
+41 | |     :attribute username: str - Никнейм/Имя пользователя:
+42 | |     :attribute email: str - Электронный адрес пользователя:
+43 | |     :attribute role_id: int - Уникальное значение роли:
+44 | |     :attribute is_active: bool - Активный пользователь или нет:
+45 | |     :attribute is_superuser: bool - Супер пользователь или нет:
+46 | |     :attribute is_verified: bool - Верифицирован пользователь или нет:
+47 | |     """
+   | |_______^ D415
+48 |       id: int
+49 |       username: str
+   |
+   = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:38:36: RUF002 Docstring contains ambiguous `о` (CYRILLIC SMALL LETTER O). Did you mean `o` (LATIN SMALL LETTER O)?
+   |
+36 | class UserRead(schemas.BaseUser[int]):
+37 |     """
+38 |     Схема(Класс) для чтение данных о пользователе
+   |                                    ^ RUF002
+39 | 
+40 |     :attribute id: int - Уникальное значение пользователя:
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:52:16: UP007 Use `X | Y` for type annotations
+   |
+50 |     email: str
+51 |     role_id: int
+52 |     is_active: Optional[bool] = True
+   |                ^^^^^^^^^^^^^^ UP007
+53 |     is_superuser: Optional[bool] = False
+54 |     is_verified: Optional[bool] = False
+   |
+   = help: Convert to `X | Y`
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:53:19: UP007 Use `X | Y` for type annotations
+   |
+51 |     role_id: int
+52 |     is_active: Optional[bool] = True
+53 |     is_superuser: Optional[bool] = False
+   |                   ^^^^^^^^^^^^^^ UP007
+54 |     is_verified: Optional[bool] = False
+   |
+   = help: Convert to `X | Y`
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:54:18: UP007 Use `X | Y` for type annotations
+   |
+52 |     is_active: Optional[bool] = True
+53 |     is_superuser: Optional[bool] = False
+54 |     is_verified: Optional[bool] = False
+   |                  ^^^^^^^^^^^^^^ UP007
+55 | 
+56 |     class Config:
+   |
+   = help: Convert to `X | Y`
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:56:11: D106 Missing docstring in public nested class
+   |
+54 |     is_verified: Optional[bool] = False
+55 | 
+56 |     class Config:
+   |           ^^^^^^ D106
+57 |         from_attributes = True
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:61:5: D204 [*] 1 blank line required after class docstring
+   |
+60 |   class UserCreate(schemas.BaseUserCreate):
+61 |       """
+   |  _____^
+62 | |     Схема(Класс) для создание пользователя
+63 | | 
+64 | |     :attribute username: str - Никнейм/Имя пользователя:
+65 | |     :attribute email: str - Электронный адрес пользователя:
+66 | |     :attribute password: str - Пароль пользователя в строки (пока ещё не хэш):
+67 | |     :attribute role_id: int - Уникальное значение роли:
+68 | |     :attribute is_active: bool - Активный пользователь или нет:
+69 | |     :attribute is_superuser: bool - Супер пользователь или нет:
+70 | |     :attribute is_verified: bool - Верифицирован пользователь или нет:
+71 | |     """
+   | |_______^ D204
+72 |       username: str
+73 |       email: str
+   |
+   = help: Insert 1 blank line after class docstring
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:61:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+60 |   class UserCreate(schemas.BaseUserCreate):
+61 |       """
+   |  _____^
+62 | |     Схема(Класс) для создание пользователя
+63 | | 
+64 | |     :attribute username: str - Никнейм/Имя пользователя:
+65 | |     :attribute email: str - Электронный адрес пользователя:
+66 | |     :attribute password: str - Пароль пользователя в строки (пока ещё не хэш):
+67 | |     :attribute role_id: int - Уникальное значение роли:
+68 | |     :attribute is_active: bool - Активный пользователь или нет:
+69 | |     :attribute is_superuser: bool - Супер пользователь или нет:
+70 | |     :attribute is_verified: bool - Верифицирован пользователь или нет:
+71 | |     """
+   | |_______^ D212
+72 |       username: str
+73 |       email: str
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:61:5: D400 First line should end with a period
+   |
+60 |   class UserCreate(schemas.BaseUserCreate):
+61 |       """
+   |  _____^
+62 | |     Схема(Класс) для создание пользователя
+63 | | 
+64 | |     :attribute username: str - Никнейм/Имя пользователя:
+65 | |     :attribute email: str - Электронный адрес пользователя:
+66 | |     :attribute password: str - Пароль пользователя в строки (пока ещё не хэш):
+67 | |     :attribute role_id: int - Уникальное значение роли:
+68 | |     :attribute is_active: bool - Активный пользователь или нет:
+69 | |     :attribute is_superuser: bool - Супер пользователь или нет:
+70 | |     :attribute is_verified: bool - Верифицирован пользователь или нет:
+71 | |     """
+   | |_______^ D400
+72 |       username: str
+73 |       email: str
+   |
+   = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:61:5: D415 First line should end with a period, question mark, or exclamation point
+   |
+60 |   class UserCreate(schemas.BaseUserCreate):
+61 |       """
+   |  _____^
+62 | |     Схема(Класс) для создание пользователя
+63 | | 
+64 | |     :attribute username: str - Никнейм/Имя пользователя:
+65 | |     :attribute email: str - Электронный адрес пользователя:
+66 | |     :attribute password: str - Пароль пользователя в строки (пока ещё не хэш):
+67 | |     :attribute role_id: int - Уникальное значение роли:
+68 | |     :attribute is_active: bool - Активный пользователь или нет:
+69 | |     :attribute is_superuser: bool - Супер пользователь или нет:
+70 | |     :attribute is_verified: bool - Верифицирован пользователь или нет:
+71 | |     """
+   | |_______^ D415
+72 |       username: str
+73 |       email: str
+   |
+   = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:76:16: UP007 Use `X | Y` for type annotations
+   |
+74 |     password: str
+75 |     role_id: int
+76 |     is_active: Optional[bool] = True
+   |                ^^^^^^^^^^^^^^ UP007
+77 |     is_superuser: Optional[bool] = False
+78 |     is_verified: Optional[bool] = False
+   |
+   = help: Convert to `X | Y`
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:77:19: UP007 Use `X | Y` for type annotations
+   |
+75 |     role_id: int
+76 |     is_active: Optional[bool] = True
+77 |     is_superuser: Optional[bool] = False
+   |                   ^^^^^^^^^^^^^^ UP007
+78 |     is_verified: Optional[bool] = False
+   |
+   = help: Convert to `X | Y`
+
+/home/acolyte/soft/api-project/api-text-tone/app/schemas.py:78:18: UP007 Use `X | Y` for type annotations
+   |
+76 |     is_active: Optional[bool] = True
+77 |     is_superuser: Optional[bool] = False
+78 |     is_verified: Optional[bool] = False
+   |                  ^^^^^^^^^^^^^^ UP007
+   |
+   = help: Convert to `X | Y`
+
+/home/acolyte/soft/api-project/api-text-tone/config.py:1:1: D200 One-line docstring should fit on one line
+  |
+1 | / """
+2 | |     Модуль, задача которого парсить секрет-данные, чтобы потом использовать их во всем проекте.
+3 | | """
+  | |___^ D200
+4 |   import os
+  |
+  = help: Reformat to one line
+
+/home/acolyte/soft/api-project/api-text-tone/config.py:1:1: D212 [*] Multi-line docstring summary should start at the first line
+  |
+1 | / """
+2 | |     Модуль, задача которого парсить секрет-данные, чтобы потом использовать их во всем проекте.
+3 | | """
+  | |___^ D212
+4 |   import os
+  |
+  = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/config.py:2:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Модуль, задача которого парсить секрет-данные, чтобы потом использовать их во всем проекте.
+  |  D208
+3 | """
+4 | import os
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/migrations/env.py:1:1: D200 One-line docstring should fit on one line
+  |
+1 | / """
+2 | |     Python module
+3 | | """
+  | |___^ D200
+4 |   from logging.config import fileConfig
+  |
+  = help: Reformat to one line
+
+/home/acolyte/soft/api-project/api-text-tone/migrations/env.py:1:1: D212 [*] Multi-line docstring summary should start at the first line
+  |
+1 | / """
+2 | |     Python module
+3 | | """
+  | |___^ D212
+4 |   from logging.config import fileConfig
+  |
+  = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/migrations/env.py:1:1: D400 First line should end with a period
+  |
+1 | / """
+2 | |     Python module
+3 | | """
+  | |___^ D400
+4 |   from logging.config import fileConfig
+  |
+  = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/migrations/env.py:1:1: D415 First line should end with a period, question mark, or exclamation point
+  |
+1 | / """
+2 | |     Python module
+3 | | """
+  | |___^ D415
+4 |   from logging.config import fileConfig
+  |
+  = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/migrations/env.py:2:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Python module
+  |  D208
+3 | """
+4 | from logging.config import fileConfig
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/migrations/versions/012bbd601362_init_db.py:1:1: D400 First line should end with a period
+  |
+1 | / """init db
+2 | | 
+3 | | Revision ID: 012bbd601362
+4 | | Revises: 
+5 | | Create Date: 2023-12-12 19:07:09.957117
+6 | | 
+7 | | """
+  | |___^ D400
+8 |   from typing import Sequence, Union
+  |
+  = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/migrations/versions/012bbd601362_init_db.py:1:1: D415 First line should end with a period, question mark, or exclamation point
+  |
+1 | / """init db
+2 | | 
+3 | | Revision ID: 012bbd601362
+4 | | Revises: 
+5 | | Create Date: 2023-12-12 19:07:09.957117
+6 | | 
+7 | | """
+  | |___^ D415
+8 |   from typing import Sequence, Union
+  |
+  = help: Add closing punctuation
+
+/home/acolyte/soft/api-project/api-text-tone/migrations/versions/012bbd601362_init_db.py:4:9: W291 [*] Trailing whitespace
+  |
+3 | Revision ID: 012bbd601362
+4 | Revises: 
+  |         ^ W291
+5 | Create Date: 2023-12-12 19:07:09.957117
+  |
+  = help: Remove trailing whitespace
+
+/home/acolyte/soft/api-project/api-text-tone/migrations/versions/012bbd601362_init_db.py:8:1: UP035 [*] Import from `collections.abc` instead: `Sequence`
+   |
+ 7 | """
+ 8 | from typing import Sequence, Union
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ UP035
+ 9 | 
+10 | from alembic import op
+   |
+   = help: Import from `collections.abc`
+
+/home/acolyte/soft/api-project/api-text-tone/migrations/versions/012bbd601362_init_db.py:15:16: UP007 Use `X | Y` for type annotations
+   |
+13 | # revision identifiers, used by Alembic.
+14 | revision: str = '012bbd601362'
+15 | down_revision: Union[str, None] = None
+   |                ^^^^^^^^^^^^^^^^ UP007
+16 | branch_labels: Union[str, Sequence[str], None] = None
+17 | depends_on: Union[str, Sequence[str], None] = None
+   |
+   = help: Convert to `X | Y`
+
+/home/acolyte/soft/api-project/api-text-tone/migrations/versions/012bbd601362_init_db.py:16:16: UP007 Use `X | Y` for type annotations
+   |
+14 | revision: str = '012bbd601362'
+15 | down_revision: Union[str, None] = None
+16 | branch_labels: Union[str, Sequence[str], None] = None
+   |                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ UP007
+17 | depends_on: Union[str, Sequence[str], None] = None
+   |
+   = help: Convert to `X | Y`
+
+/home/acolyte/soft/api-project/api-text-tone/migrations/versions/012bbd601362_init_db.py:17:13: UP007 Use `X | Y` for type annotations
+   |
+15 | down_revision: Union[str, None] = None
+16 | branch_labels: Union[str, Sequence[str], None] = None
+17 | depends_on: Union[str, Sequence[str], None] = None
+   |             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ UP007
+   |
+   = help: Convert to `X | Y`
+
+/home/acolyte/soft/api-project/api-text-tone/migrations/versions/012bbd601362_init_db.py:20:5: D103 Missing docstring in public function
+   |
+20 | def upgrade() -> None:
+   |     ^^^^^^^ D103
+21 |     # ### commands auto generated by Alembic - please adjust! ###
+22 |     op.create_table('role',
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/migrations/versions/012bbd601362_init_db.py:44:5: D103 Missing docstring in public function
+   |
+44 | def downgrade() -> None:
+   |     ^^^^^^^^^ D103
+45 |     # ### commands auto generated by Alembic - please adjust! ###
+46 |     op.drop_table('user')
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/ml/__init__.py:1:1: D104 Missing docstring in public package
+ |
+ |
+
+/home/acolyte/soft/api-project/api-text-tone/ml/model.py:1:1: D205 1 blank line required between summary line and description
+  |
+1 | / """
+2 | |     Модуль, в котором реализована основанная функция ML - части приложение.
+3 | |     Модель подгружается из pipeline Hugging Face Transformers написанный в config.yaml файле.
+4 | |     Модель использует CPU (из-за аргумента device=-1).
+5 | |     После, на подгруженный pipeline идет запрос -> обрабатывается текст -> результирует в формате SentimentPrediction.
+6 | | """
+  | |___^ D205
+7 |   from pathlib import Path
+8 |   from yaml import load, FullLoader
+  |
+  = help: Insert single blank line
+
+/home/acolyte/soft/api-project/api-text-tone/ml/model.py:1:1: D212 [*] Multi-line docstring summary should start at the first line
+  |
+1 | / """
+2 | |     Модуль, в котором реализована основанная функция ML - части приложение.
+3 | |     Модель подгружается из pipeline Hugging Face Transformers написанный в config.yaml файле.
+4 | |     Модель использует CPU (из-за аргумента device=-1).
+5 | |     После, на подгруженный pipeline идет запрос -> обрабатывается текст -> результирует в формате SentimentPrediction.
+6 | | """
+  | |___^ D212
+7 |   from pathlib import Path
+8 |   from yaml import load, FullLoader
+  |
+  = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/ml/model.py:2:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Модуль, в котором реализована основанная функция ML - части приложение.
+  |  D208
+3 |     Модель подгружается из pipeline Hugging Face Transformers написанный в config.yaml файле.
+4 |     Модель использует CPU (из-за аргумента device=-1).
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/ml/model.py:3:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Модуль, в котором реализована основанная функция ML - части приложение.
+3 |     Модель подгружается из pipeline Hugging Face Transformers написанный в config.yaml файле.
+  |  D208
+4 |     Модель использует CPU (из-за аргумента device=-1).
+5 |     После, на подгруженный pipeline идет запрос -> обрабатывается текст -> результирует в формате SentimentPrediction.
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/ml/model.py:4:1: D208 [*] Docstring is over-indented
+  |
+2 |     Модуль, в котором реализована основанная функция ML - части приложение.
+3 |     Модель подгружается из pipeline Hugging Face Transformers написанный в config.yaml файле.
+4 |     Модель использует CPU (из-за аргумента device=-1).
+  |  D208
+5 |     После, на подгруженный pipeline идет запрос -> обрабатывается текст -> результирует в формате SentimentPrediction.
+6 | """
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/ml/model.py:5:1: D208 [*] Docstring is over-indented
+  |
+3 |     Модель подгружается из pipeline Hugging Face Transformers написанный в config.yaml файле.
+4 |     Модель использует CPU (из-за аргумента device=-1).
+5 |     После, на подгруженный pipeline идет запрос -> обрабатывается текст -> результирует в формате SentimentPrediction.
+  |  D208
+6 | """
+7 | from pathlib import Path
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/ml/model.py:16:6: UP015 [*] Unnecessary open mode parameters
+   |
+15 | config_path = Path(__file__).parent / "config.yaml"
+16 | with open(config_path, "r") as file:
+   |      ^^^^^^^^^^^^^^^^^^^^^^ UP015
+17 |     config = load(file, Loader=FullLoader)
+   |
+   = help: Remove open mode parameters
+
+/home/acolyte/soft/api-project/api-text-tone/ml/model.py:16:6: PTH123 `open()` should be replaced by `Path.open()`
+   |
+15 | config_path = Path(__file__).parent / "config.yaml"
+16 | with open(config_path, "r") as file:
+   |      ^^^^ PTH123
+17 |     config = load(file, Loader=FullLoader)
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/ml/model.py:17:32: S506 Probable use of unsafe loader `FullLoader` with `yaml.load`. Allows instantiation of arbitrary objects. Consider `yaml.safe_load`.
+   |
+15 | config_path = Path(__file__).parent / "config.yaml"
+16 | with open(config_path, "r") as file:
+17 |     config = load(file, Loader=FullLoader)
+   |                                ^^^^^^^^^^ S506
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/ml/model.py:20:5: ANN201 Missing return type annotation for public function `load_model`
+   |
+20 | def load_model():
+   |     ^^^^^^^^^^ ANN201
+21 |     """
+22 |     Функция, которая создает вложенную функцию "model"
+   |
+   = help: Add return type annotation
+
+/home/acolyte/soft/api-project/api-text-tone/ml/model.py:21:5: D205 1 blank line required between summary line and description
+   |
+20 |   def load_model():
+21 |       """
+   |  _____^
+22 | |     Функция, которая создает вложенную функцию "model"
+23 | |     Функция model - используя загруженную модель из Hugging Face Transformers, анализирует текст
+24 | | 
+25 | |     :return SentimentPrediction: schema - Схема из модуля "schemas.py":
+26 | |     """
+   | |_______^ D205
+27 |       model_hf = pipeline(config["task"], model=config["model"], device=-1)
+   |
+   = help: Insert single blank line
+
+/home/acolyte/soft/api-project/api-text-tone/ml/model.py:21:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+20 |   def load_model():
+21 |       """
+   |  _____^
+22 | |     Функция, которая создает вложенную функцию "model"
+23 | |     Функция model - используя загруженную модель из Hugging Face Transformers, анализирует текст
+24 | | 
+25 | |     :return SentimentPrediction: schema - Схема из модуля "schemas.py":
+26 | |     """
+   | |_______^ D212
+27 |       model_hf = pipeline(config["task"], model=config["model"], device=-1)
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/ml/model.py:21:5: D400 First line should end with a period
+   |
+20 |   def load_model():
+21 |       """
+   |  _____^
+22 | |     Функция, которая создает вложенную функцию "model"
+23 | |     Функция model - используя загруженную модель из Hugging Face Transformers, анализирует текст
+24 | | 
+25 | |     :return SentimentPrediction: schema - Схема из модуля "schemas.py":
+26 | |     """
+   | |_______^ D400
+27 |       model_hf = pipeline(config["task"], model=config["model"], device=-1)
+   |
+   = help: Add period
+
+/home/acolyte/soft/api-project/api-text-tone/ml/model.py:21:5: D415 First line should end with a period, question mark, or exclamation point
+   |
+20 |   def load_model():
+21 |       """
+   |  _____^
+22 | |     Функция, которая создает вложенную функцию "model"
+23 | |     Функция model - используя загруженную модель из Hugging Face Transformers, анализирует текст
+24 | | 
+25 | |     :return SentimentPrediction: schema - Схема из модуля "schemas.py":
+26 | |     """
+   | |_______^ D415
+27 |       model_hf = pipeline(config["task"], model=config["model"], device=-1)
+   |
+   = help: Add closing punctuation
+
+__init__.py:1:1: D104 Missing docstring in public package
+ |
+ |
+
+/home/acolyte/soft/api-project/api-text-tone/script_db.py:1:1: D205 1 blank line required between summary line and description
+  |
+1 | / """
+2 | |     Специальный модуль для начало работы всего сайта.
+3 | |     Здесь активные функции, которые используются для инициализации БД.
+4 | | """
+  | |___^ D205
+5 |   from sqlalchemy import create_engine, MetaData, insert, select
+6 |   from sqlalchemy.orm import sessionmaker
+  |
+  = help: Insert single blank line
+
+/home/acolyte/soft/api-project/api-text-tone/script_db.py:1:1: D212 [*] Multi-line docstring summary should start at the first line
+  |
+1 | / """
+2 | |     Специальный модуль для начало работы всего сайта.
+3 | |     Здесь активные функции, которые используются для инициализации БД.
+4 | | """
+  | |___^ D212
+5 |   from sqlalchemy import create_engine, MetaData, insert, select
+6 |   from sqlalchemy.orm import sessionmaker
+  |
+  = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/script_db.py:2:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Специальный модуль для начало работы всего сайта.
+  |  D208
+3 |     Здесь активные функции, которые используются для инициализации БД.
+4 | """
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/script_db.py:3:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Специальный модуль для начало работы всего сайта.
+3 |     Здесь активные функции, которые используются для инициализации БД.
+  |  D208
+4 | """
+5 | from sqlalchemy import create_engine, MetaData, insert, select
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/script_db.py:21:5: D205 1 blank line required between summary line and description
+   |
+20 |   def populate_users_table() -> None:
+21 |       """
+   |  _____^
+22 | |     Функция, для заполнения таблицы "role".
+23 | |     Необходимая функция, чтобы задать права будущим пользователям.
+24 | | 
+25 | |     :return None: Ничего не возвращает, делает коммит в базу и все:
+26 | |     """
+   | |_______^ D205
+27 |       db_data = [
+28 |           {"id": "1", "name": "user", "permissions": {"_requests": 50, "_symbols": 100}},
+   |
+   = help: Insert single blank line
+
+/home/acolyte/soft/api-project/api-text-tone/script_db.py:21:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+20 |   def populate_users_table() -> None:
+21 |       """
+   |  _____^
+22 | |     Функция, для заполнения таблицы "role".
+23 | |     Необходимая функция, чтобы задать права будущим пользователям.
+24 | | 
+25 | |     :return None: Ничего не возвращает, делает коммит в базу и все:
+26 | |     """
+   | |_______^ D212
+27 |       db_data = [
+28 |           {"id": "1", "name": "user", "permissions": {"_requests": 50, "_symbols": 100}},
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/script_db.py:40:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+39 |   def view_role_table() -> dict:
+40 |       """
+   |  _____^
+41 | |     Функция, для получения данных из таблицы "role", в кастомном словаре.
+42 | | 
+43 | |     :return dict: Возвращает словарь с данными из таблицы "role":
+44 | |     """
+   | |_______^ D212
+45 |       query = select(role)
+46 |       result = db.execute(query)
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/script_db.py:43:38: RUF002 Docstring contains ambiguous `с` (CYRILLIC SMALL LETTER ES). Did you mean `c` (LATIN SMALL LETTER C)?
+   |
+41 |     Функция, для получения данных из таблицы "role", в кастомном словаре.
+42 | 
+43 |     :return dict: Возвращает словарь с данными из таблицы "role":
+   |                                      ^ RUF002
+44 |     """
+45 |     query = select(role)
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/script_db.py:49:37: B905 `zip()` without an explicit `strict=` parameter
+   |
+48 |     column_names = result.keys()
+49 |     role_data = {"role_data": [dict(zip(column_names, row)) for row in result]}
+   |                                     ^^^^^^^^^^^^^^^^^^^^^^ B905
+50 | 
+51 |     return role_data
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/script_db.py:55:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+54 |   def get_permissions_by_id(role_id: int) -> tuple:
+55 |       """
+   |  _____^
+56 | |     Функция, для отображения прав конкретной роли из таблицы "role".
+57 | | 
+58 | |     :param role_id: int - ID роли (1, 2, 3):
+59 | |     :return tuple: Возвращает кортеж в формате - int, int, str):
+60 | |     """
+   | |_______^ D212
+61 |       data: dict = view_role_table()
+62 |       for _role in data["role_data"]:
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/tests/__init__.py:1:1: D104 Missing docstring in public package
+ |
+ |
+
+/home/acolyte/soft/api-project/api-text-tone/tests/conftest.py:1:1: D200 One-line docstring should fit on one line
+  |
+1 | / """
+2 | |     Тестовый файл для базовой работы тестов.
+3 | | """
+  | |___^ D200
+4 |   import pytest
+  |
+  = help: Reformat to one line
+
+/home/acolyte/soft/api-project/api-text-tone/tests/conftest.py:1:1: D212 [*] Multi-line docstring summary should start at the first line
+  |
+1 | / """
+2 | |     Тестовый файл для базовой работы тестов.
+3 | | """
+  | |___^ D212
+4 |   import pytest
+  |
+  = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/tests/conftest.py:2:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Тестовый файл для базовой работы тестов.
+  |  D208
+3 | """
+4 | import pytest
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/tests/conftest.py:9:17: PT003 `scope='function'` is implied in `@pytest.fixture()`
+   |
+ 9 | @pytest.fixture(scope="function")
+   |                 ^^^^^^^^^^^^^^^^ PT003
+10 | def model():
+11 |     """
+   |
+   = help: Remove implied `scope` argument
+
+/home/acolyte/soft/api-project/api-text-tone/tests/conftest.py:10:5: ANN201 Missing return type annotation for public function `model`
+   |
+ 9 | @pytest.fixture(scope="function")
+10 | def model():
+   |     ^^^^^ ANN201
+11 |     """
+12 |     Фикстура тестов для вызова модели.
+   |
+   = help: Add return type annotation
+
+/home/acolyte/soft/api-project/api-text-tone/tests/conftest.py:11:5: D205 1 blank line required between summary line and description
+   |
+ 9 |   @pytest.fixture(scope="function")
+10 |   def model():
+11 |       """
+   |  _____^
+12 | |     Фикстура тестов для вызова модели.
+13 | |     Используется в качестве аргумента к тестовой функции.
+14 | | 
+15 | |     :return def: Возвращает вызов функции:
+16 | |     """
+   | |_______^ D205
+17 |       return load_model()
+   |
+   = help: Insert single blank line
+
+/home/acolyte/soft/api-project/api-text-tone/tests/conftest.py:11:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+ 9 |   @pytest.fixture(scope="function")
+10 |   def model():
+11 |       """
+   |  _____^
+12 | |     Фикстура тестов для вызова модели.
+13 | |     Используется в качестве аргумента к тестовой функции.
+14 | | 
+15 | |     :return def: Возвращает вызов функции:
+16 | |     """
+   | |_______^ D212
+17 |       return load_model()
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_app.py:1:1: D200 One-line docstring should fit on one line
+  |
+1 | / """
+2 | |     Тестовый модуль, для проверки и отслеживания функционала, в ходе работы и его изменений.
+3 | | """
+  | |___^ D200
+4 |   import pytest
+5 |   import requests
+  |
+  = help: Reformat to one line
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_app.py:1:1: D212 [*] Multi-line docstring summary should start at the first line
+  |
+1 | / """
+2 | |     Тестовый модуль, для проверки и отслеживания функционала, в ходе работы и его изменений.
+3 | | """
+  | |___^ D212
+4 |   import pytest
+5 |   import requests
+  |
+  = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_app.py:2:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Тестовый модуль, для проверки и отслеживания функционала, в ходе работы и его изменений.
+  |  D208
+3 | """
+4 | import pytest
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_app.py:2:79: RUF002 Docstring contains ambiguous `е` (CYRILLIC SMALL LETTER IE). Did you mean `e` (LATIN SMALL LETTER E)?
+  |
+1 | """
+2 |     Тестовый модуль, для проверки и отслеживания функционала, в ходе работы и его изменений.
+  |                                                                               ^ RUF002
+3 | """
+4 | import pytest
+  |
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_app.py:2:80: RUF002 Docstring contains ambiguous `г` (CYRILLIC SMALL LETTER GHE). Did you mean `r` (LATIN SMALL LETTER R)?
+  |
+1 | """
+2 |     Тестовый модуль, для проверки и отслеживания функционала, в ходе работы и его изменений.
+  |                                                                                ^ RUF002
+3 | """
+4 | import pytest
+  |
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_app.py:2:81: RUF002 Docstring contains ambiguous `о` (CYRILLIC SMALL LETTER O). Did you mean `o` (LATIN SMALL LETTER O)?
+  |
+1 | """
+2 |     Тестовый модуль, для проверки и отслеживания функционала, в ходе работы и его изменений.
+  |                                                                                 ^ RUF002
+3 | """
+4 | import pytest
+  |
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_app.py:11:5: PT006 Wrong name(s) type in `@pytest.mark.parametrize`, expected `tuple`
+   |
+10 | @pytest.mark.parametrize(
+11 |     "input_text, expected_label",
+   |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^ PT006
+12 |     [
+13 |         ("очень плохо", "negative"),
+   |
+   = help: Use a `tuple` for parameter names
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_app.py:18:5: ANN201 Missing return type annotation for public function `test_sentiment`
+   |
+16 |     ],
+17 | )
+18 | def test_sentiment(input_text: str, expected_label: str):
+   |     ^^^^^^^^^^^^^^ ANN201
+19 |     """
+20 |     Базовый тест для проверки качества работы запроса приложения.
+   |
+   = help: Add return type annotation
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_app.py:19:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+17 |   )
+18 |   def test_sentiment(input_text: str, expected_label: str):
+19 |       """
+   |  _____^
+20 | |     Базовый тест для проверки качества работы запроса приложения.
+21 | | 
+22 | |     :param input_text: str - Текст, который оценивается на тональность:
+23 | |     :param expected_label: str - Заранее прописанная оценка тексту:
+24 | |     """
+   | |_______^ D212
+25 |       response = requests.get(f"http://{DB_HOST}:{DB_PORT}/predict", params={"text": input_text})
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_app.py:25:16: S113 Probable use of requests call without timeout
+   |
+23 |     :param expected_label: str - Заранее прописанная оценка тексту:
+24 |     """
+25 |     response = requests.get(f"http://{DB_HOST}:{DB_PORT}/predict", params={"text": input_text})
+   |                ^^^^^^^^^^^^ S113
+26 | 
+27 |     assert response.json()["text"] == input_text
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_app.py:27:5: S101 Use of `assert` detected
+   |
+25 |     response = requests.get(f"http://{DB_HOST}:{DB_PORT}/predict", params={"text": input_text})
+26 | 
+27 |     assert response.json()["text"] == input_text
+   |     ^^^^^^ S101
+28 |     assert response.json()["sentiment_label"] == expected_label
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_app.py:28:5: S101 Use of `assert` detected
+   |
+27 |     assert response.json()["text"] == input_text
+28 |     assert response.json()["sentiment_label"] == expected_label
+   |     ^^^^^^ S101
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_ml.py:1:1: D200 One-line docstring should fit on one line
+  |
+1 | / """
+2 | |     Тестовый модуль, для проверки и отслеживания функционала, в ходе работы и его изменений.
+3 | | """
+  | |___^ D200
+4 |   import pytest
+  |
+  = help: Reformat to one line
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_ml.py:1:1: D212 [*] Multi-line docstring summary should start at the first line
+  |
+1 | / """
+2 | |     Тестовый модуль, для проверки и отслеживания функционала, в ходе работы и его изменений.
+3 | | """
+  | |___^ D212
+4 |   import pytest
+  |
+  = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_ml.py:2:1: D208 [*] Docstring is over-indented
+  |
+1 | """
+2 |     Тестовый модуль, для проверки и отслеживания функционала, в ходе работы и его изменений.
+  |  D208
+3 | """
+4 | import pytest
+  |
+  = help: Remove over-indentation
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_ml.py:2:79: RUF002 Docstring contains ambiguous `е` (CYRILLIC SMALL LETTER IE). Did you mean `e` (LATIN SMALL LETTER E)?
+  |
+1 | """
+2 |     Тестовый модуль, для проверки и отслеживания функционала, в ходе работы и его изменений.
+  |                                                                               ^ RUF002
+3 | """
+4 | import pytest
+  |
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_ml.py:2:80: RUF002 Docstring contains ambiguous `г` (CYRILLIC SMALL LETTER GHE). Did you mean `r` (LATIN SMALL LETTER R)?
+  |
+1 | """
+2 |     Тестовый модуль, для проверки и отслеживания функционала, в ходе работы и его изменений.
+  |                                                                                ^ RUF002
+3 | """
+4 | import pytest
+  |
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_ml.py:2:81: RUF002 Docstring contains ambiguous `о` (CYRILLIC SMALL LETTER O). Did you mean `o` (LATIN SMALL LETTER O)?
+  |
+1 | """
+2 |     Тестовый модуль, для проверки и отслеживания функционала, в ходе работы и его изменений.
+  |                                                                                 ^ RUF002
+3 | """
+4 | import pytest
+  |
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_ml.py:10:5: PT006 Wrong name(s) type in `@pytest.mark.parametrize`, expected `tuple`
+   |
+ 9 | @pytest.mark.parametrize(
+10 |     "text, expected_label",
+   |     ^^^^^^^^^^^^^^^^^^^^^^ PT006
+11 |     [
+12 |         ("очень плохо", "negative"),
+   |
+   = help: Use a `tuple` for parameter names
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_ml.py:17:5: ANN201 Missing return type annotation for public function `test_sentiment`
+   |
+15 |     ],
+16 | )
+17 | def test_sentiment(model, text: str, expected_label: str):
+   |     ^^^^^^^^^^^^^^ ANN201
+18 |     """
+19 |     Базовый тест для проверки качества работы модели на оценку тональности текста.
+   |
+   = help: Add return type annotation
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_ml.py:17:20: ANN001 Missing type annotation for function argument `model`
+   |
+15 |     ],
+16 | )
+17 | def test_sentiment(model, text: str, expected_label: str):
+   |                    ^^^^^ ANN001
+18 |     """
+19 |     Базовый тест для проверки качества работы модели на оценку тональности текста.
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_ml.py:18:5: D212 [*] Multi-line docstring summary should start at the first line
+   |
+16 |   )
+17 |   def test_sentiment(model, text: str, expected_label: str):
+18 |       """
+   |  _____^
+19 | |     Базовый тест для проверки качества работы модели на оценку тональности текста.
+20 | | 
+21 | |     :param model: fixture - Фикстура для тестов, в ней сама модель:
+22 | |     :param text: str - Текст, который оценивается на тональность:
+23 | |     :param expected_label: str - Заранее прописанная оценка тексту:
+24 | |     """
+   | |_______^ D212
+25 |       model_pred = model(text)
+   |
+   = help: Remove whitespace after opening quotes
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_ml.py:27:5: S101 Use of `assert` detected
+   |
+25 |     model_pred = model(text)
+26 | 
+27 |     assert isinstance(model_pred, SentimentPrediction)
+   |     ^^^^^^ S101
+28 |     assert model_pred.label == expected_label
+   |
+
+/home/acolyte/soft/api-project/api-text-tone/tests/test_ml.py:28:5: S101 Use of `assert` detected
+   |
+27 |     assert isinstance(model_pred, SentimentPrediction)
+28 |     assert model_pred.label == expected_label
+   |     ^^^^^^ S101
+   |
+
+Found 231 errors.
+[*] 79 fixable with the `--fix` option (59 hidden fixes can be enabled with the `--unsafe-fixes` option).
+ 
+=====================
+[MYPY LOGS]
+=====================
+ 
+../../config.py:6: error: Cannot find implementation or library stub for module named "dotenv"  [import-not-found]
+../../migrations/versions/012bbd601362_init_db.py:10: error: Cannot find implementation or library stub for module named "alembic"  [import-not-found]
+../../migrations/versions/012bbd601362_init_db.py:11: error: Cannot find implementation or library stub for module named "sqlalchemy"  [import-not-found]
+../../app/schemas.py:7: error: Cannot find implementation or library stub for module named "fastapi_users"  [import-not-found]
+../../app/schemas.py:8: error: Cannot find implementation or library stub for module named "pydantic"  [import-not-found]
+../../tests/test_ml.py:4: error: Cannot find implementation or library stub for module named "pytest"  [import-not-found]
+../../tests/test_app.py:4: error: Cannot find implementation or library stub for module named "pytest"  [import-not-found]
+../../tests/test_app.py:5: error: Library stubs not installed for "requests"  [import-untyped]
+../../tests/test_app.py:5: note: Hint: "python3 -m pip install types-requests"
+../../ml/model.py:8: error: Library stubs not installed for "yaml"  [import-untyped]
+../../ml/model.py:8: note: Hint: "python3 -m pip install types-PyYAML"
+../../ml/model.py:8: note: (or run "mypy --install-types" to install all missing stub packages)
+../../ml/model.py:10: error: Cannot find implementation or library stub for module named "transformers"  [import-not-found]
+../../app/auth/strategy.py:5: error: Cannot find implementation or library stub for module named "fastapi_users.authentication"  [import-not-found]
+../../tests/conftest.py:4: error: Cannot find implementation or library stub for module named "pytest"  [import-not-found]
+../../app/auth/models.py:6: error: Cannot find implementation or library stub for module named "sqlalchemy"  [import-not-found]
+../../script_db.py:5: error: Cannot find implementation or library stub for module named "sqlalchemy"  [import-not-found]
+../../script_db.py:6: error: Cannot find implementation or library stub for module named "sqlalchemy.orm"  [import-not-found]
+../../script_db.py:54: error: Missing return statement  [return]
+../../migrations/env.py:6: error: Cannot find implementation or library stub for module named "sqlalchemy"  [import-not-found]
+../../migrations/env.py:9: error: Cannot find implementation or library stub for module named "alembic"  [import-not-found]
+../../app/auth/database.py:10: error: Cannot find implementation or library stub for module named "sqlalchemy.ext.declarative"  [import-not-found]
+../../app/auth/database.py:10: note: See https://mypy.readthedocs.io/en/stable/running_mypy.html#missing-imports
+../../app/auth/database.py:11: error: Cannot find implementation or library stub for module named "sqlalchemy"  [import-not-found]
+../../app/auth/database.py:12: error: Cannot find implementation or library stub for module named "sqlalchemy.ext.asyncio"  [import-not-found]
+../../app/auth/database.py:13: error: Cannot find implementation or library stub for module named "sqlalchemy.orm"  [import-not-found]
+../../app/auth/database.py:14: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+../../app/auth/database.py:15: error: Cannot find implementation or library stub for module named "fastapi_users.db"  [import-not-found]
+../../app/auth/manager.py:7: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+../../app/auth/manager.py:8: error: Cannot find implementation or library stub for module named "fastapi_users"  [import-not-found]
+../../app/auth/manager.py:51: error: The return type of an async generator function should be "AsyncGenerator" or one of its supertypes  [misc]
+../../app/routers.py:7: error: Cannot find implementation or library stub for module named "fastapi"  [import-not-found]
+../../app/routers.py:8: error: Cannot find implementation or library stub for module named "fastapi.templating"  [import-not-found]
+../../app/routers.py:9: error: Cannot find implementation or library stub for module named "fastapi.responses"  [import-not-found]
+../../app/routers.py:10: error: Cannot find implementation or library stub for module named "fastapi_users"  [import-not-found]
+../../app/routers.py:11: error: Cannot find implementation or library stub for module named "sqlalchemy.orm"  [import-not-found]
+../../app/routers.py:83: error: Unsupported operand types for <= ("int" and "object")  [operator]
+../../app/routers.py:89: error: No overload variant of "__sub__" of "datetime" matches argument type "object"  [operator]
+../../app/routers.py:89: note: Possible overload variants:
+../../app/routers.py:89: note:     def __sub__(self, timedelta, /) -> datetime
+../../app/routers.py:89: note:     def __sub__(self, datetime, /) -> timedelta
+../../app/routers.py:129: error: "None" not callable  [misc]
+../../app/routers.py:131: error: Unsupported operand types for + ("object" and "int")  [operator]
+../../app/routers.py:224: error: Name "authorization" already defined on line 164  [no-redef]
+../../app/routers.py:261: error: Argument "is_superuser" to "update_user_roles" has incompatible type "int"; expected "bool"  [arg-type]
+Found 38 errors in 14 files (checked 19 source files)

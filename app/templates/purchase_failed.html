@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Error{% endblock %}
+
+{% block content %}
+
+    <h1>Покупка супер-пользователя не удалась</h1>
+    <p>Неверный код покупки. Попробуйте снова.</p>
+
+    <script>
+        setTimeout(function () {
+            window.location.href = "/purchase";
+        }, 5000);
+    </script>
+
+{% endblock %}

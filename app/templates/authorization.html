@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Authorization{% endblock %}
+
+{% block content %}
+    <h1>Форма Авторизации</h1>
+
+    <style>
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            width: 500px;
+            text-align: center;
+            max-width: 100%;
+            resize: none !important;
+            overflow: hidden;
+        }
+    </style>
+
+    <form id="authorizationForm">
+        <label for="email">Почтовый адрес:</label>
+        <input type="text" id="email" name="email" required>
+        <br>
+        <label for="password">Пароль:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <input type="button" value="Войти" onclick="authorizeUser()">
+    </form>
+
+    <div style="position: absolute; top: 20px; right: 20px;">
+        <a href="/" style="text-decoration: none;">
+            <button style="border: none; background-color: #5F9EA0; color: white; border-radius: 4px; font-size: 16px; cursor: pointer; padding: 10px 20px;">Анализ</button>
+        </a>
+        <a href="/reg" style="text-decoration: none;">
+            <button style="border: none; background-color: #5F9EA0; color: white; border-radius: 4px; font-size: 16px; cursor: pointer; padding: 10px 20px;">Регистрация</button>
+        </a>
+    </div>
+
+    <div id="notification" style="display: none;"></div>
+
+    <script>
+        function authorizeUser() {
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+
+            var authData = new URLSearchParams();
+            authData.append('grant_type', '');
+            authData.append('username', email);
+            authData.append('password', password);
+            authData.append('scope', '');
+            authData.append('client_id', '');
+            authData.append('client_secret', '');
+
+            fetch('/auth/jwt/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                    'accept': 'application/json'
+                },
+                body: authData
+            })
+            .then(response => {
+                if (response.ok) {
+                    showNotification('Авторизация прошла успешно.', 'green');
+                    console.log('Авторизация прошла успешно. Перенаправление через 5 секунды.');
+                    setTimeout(function () {
+                        window.location.href = "/";
+                    }, 3000);
+                } else {
+                    showNotification('Упс.. Что то пошло не так.', 'red');
+                    console.error('Ошибка авторизации:', response.statusText);
+                }
+            })
+            .catch(error => {
+                showNotification('Упс.. Что то пошло не так.', 'red');
+                console.error('Ошибка авторизации:', error);
+            });
+        }
+
+        function showNotification(message, color) {
+            var notification = document.getElementById('notification')
+            notification.innerHTML = message;
+            notification.style.backgroundColor = color;
+            notification.style.color = 'white';
+            notification.style.fontSize = '22px';
+            notification.style.border = 'none';
+            notification.style.padding = '10px 20px';
+            notification.style.borderRadius = '4px';
+            notification.style.display = 'block';
+
+            setTimeout(function() {
+                notification.style.display = 'none';
+            }, 3000)
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}Покупка супер-пользователя{% endblock %}
+
+{% block content %}
+
+    <h1>Покупка супер-пользователя</h1>
+
+    <div style="position: absolute; top: 20px; right: 20px;">
+        <a href="/profile" style="text-decoration: none;">
+            <button style="border: none; background-color: #5F9EA0; color: white; border-radius: 4px; font-size: 16px; cursor: pointer; padding: 10px 20px;">Пользователь "{{ username }}"</button>
+        </a>
+    </div>
+
+    <form method="post" action="/purchase">
+        <label for="code">Введите код:</label>
+        <input type="text" id="code" name="code" required>
+        <button type="submit">Подтвердить</button>
+    </form>
+
+{% endblock %}

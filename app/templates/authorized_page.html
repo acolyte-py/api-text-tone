@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}Sentiment Analysis{% endblock %}
+
+{% block content %}
+    <h1>Анализ тональности текста</h1>
+
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #5F9EA0;
+            color: white;
+            text-align: center;
+        }
+        #resultContainer {
+            display: none;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 800px;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+
+    <form id="sentimentForm">
+        <label for="text">Введите текст:</label>
+        <textarea id="text" name="text" rows="4" required></textarea>
+        <br>
+        <input type="button" value="Анализ" onclick="predictSentiment()">
+    </form>
+
+    <div id="resultContainer">
+        <table>
+            <tr>
+                <th colspan="2">Результат</th>
+            </tr>
+            <tr>
+                <td><strong>Sentiment Label:</strong></td>
+                <td id="labelResult"></td>
+            </tr>
+            <tr>
+                <td><strong>Sentiment Score:</strong></td>
+                <td id="scoreResult"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div style="position: absolute; top: 20px; right: 20px;">
+        <a href="/profile" style="text-decoration: none;">
+            <button style="border: none; background-color: #5F9EA0; color: white; border-radius: 4px; font-size: 16px; cursor: pointer; padding: 10px 20px;">Пользователь "{{ username }}"</button>
+        </a>
+        <button id="logout" style="border: none; background-color: #5F9EA0; color: white; border-radius: 4px; font-size: 16px; cursor: pointer; padding: 10px 20px;">Выход</button>
+    </div>
+
+    <script>
+        function predictSentiment() {
+            var text = document.getElementById("text").value;
+
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "/predict", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    var resultContainer = document.getElementById("resultContainer");
+                    resultContainer.style.display = "block";
+
+                    var result = JSON.parse(xhr.responseText);
+                    document.getElementById("labelResult").textContent = result.sentiment_label;
+                    document.getElementById("scoreResult").textContent = result.sentiment_score;
+                }
+            };
+            xhr.send("text=" + encodeURIComponent(text));
+        }
+
+        document.getElementById('logout').addEventListener('click', function() {
+
+        fetch('/auth/jwt/logout', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({})
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.includes("application/json")) {
+                return response.json();
+            } else {
+                return {};
+            }
+        })
+        .then(data => {
+            console.log('Logout successful:', data);
+            setTimeout(function () {
+                window.location.href = "/";
+            }, 1000);
+        })
+        .catch(error => {
+            console.error('Logout error:', error);
+        });
+    })
+    </script>
+{% endblock %}
